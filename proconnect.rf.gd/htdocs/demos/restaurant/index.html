@@ -1,0 +1,191 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bella Cucina | Italian Restaurant Demo</title>
+  <meta name="description" content="A stylish Italian restaurant website demo by ProConnect.">
+  <meta name="theme-color" content="#20251f">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:20px}
+    body{font-family:Arial,sans-serif;color:#28251f;background:#fffdf8;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .notice{background:#20251f;color:#fff;text-align:center;padding:10px;font-size:13px}
+    .notice a{color:#e8c88c;text-decoration:underline}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 7%;background:#fffdf8;gap:20px}
+    .logo{font-family:Georgia,serif;font-size:27px;font-weight:bold;color:#7c3025}
+    nav{display:flex;gap:25px;align-items:center;font-size:14px}
+    nav a:hover{color:#9b4b35}
+    .btn{display:inline-block;background:#8d3829;color:white;padding:13px 22px;border-radius:4px;font-weight:bold;font-size:14px;border:0;cursor:pointer}
+    .btn:hover{background:#67271d}
+    .hero{min-height:560px;display:flex;align-items:center;padding:70px 8%;color:white;background:linear-gradient(90deg,rgba(18,20,16,.84),rgba(18,20,16,.2)),url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1800&q=85') center/cover}
+    .hero-content{max-width:600px}
+    .eyebrow{color:#bd795b;font-size:12px;font-weight:bold;letter-spacing:3px}
+    .hero .eyebrow{color:#f0c994}
+    h1,h2{font-family:Georgia,serif;line-height:1.15}
+    h1{font-size:clamp(44px,7vw,76px);margin:18px 0}
+    .hero p{font-size:17px;max-width:470px;margin-bottom:28px;color:#f5eee7}
+    .section{padding:80px 8%}
+    .section-heading{text-align:center;max-width:650px;margin:0 auto 38px}
+    h2{font-size:clamp(32px,4vw,46px);margin:12px 0 16px}
+    .muted{color:#777269}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+    .dish{background:#fff;border:1px solid #eee7dc;overflow:hidden;border-radius:7px}
+    .dish img{width:100%;height:220px;object-fit:cover;display:block}
+    .dish-content{padding:20px}
+    .dish-title{display:flex;justify-content:space-between;gap:12px;font-family:Georgia,serif;font-size:20px;font-weight:bold}
+    .price{color:#8d3829;white-space:nowrap}
+    .dish p{font-size:14px;color:#777269;margin-top:10px}
+    .story{background:#f4eee5;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .story img{width:100%;height:390px;object-fit:cover;border-radius:5px}
+    .story p{margin:15px 0;color:#6d685f}
+    .reservation{text-align:center;color:white;background:linear-gradient(rgba(35,29,24,.78),rgba(35,29,24,.78)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85') center/cover}
+    .reservation p{margin:0 auto 25px;max-width:570px;color:#eee5db}
+    footer{padding:28px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;background:#20251f;color:#ddd;font-size:13px}
+    footer a{color:#e8c88c;text-decoration:underline}
+
+    /* Floating Upwork button */
+    .upwork-button{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:9999;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
+      background:#14a800;
+      color:#fff;
+      padding:14px 20px;
+      border-radius:30px;
+      text-decoration:none;
+      font-family:Arial,sans-serif;
+      font-size:14px;
+      font-weight:bold;
+      box-shadow:0 4px 16px rgba(0,0,0,.25);
+      transition:background .2s,transform .2s;
+    }
+    .upwork-button:hover{
+      background:#108500;
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    @media(max-width:760px){
+      header{flex-direction:column;padding:20px 5%}
+      nav{justify-content:center;flex-wrap:wrap;gap:15px}
+      .hero{min-height:480px;padding:55px 7%}
+      .menu-grid{grid-template-columns:1fr}
+      .dish img{height:250px}
+      .story{grid-template-columns:1fr;gap:25px}
+      .story img{height:280px}
+      .section{padding:60px 6%}
+      .upwork-button{right:12px;bottom:12px;padding:12px 16px;font-size:13px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Portfolio notice and homepage link -->
+  <div class="notice">
+    Portfolio Demo Website ·
+    <a href="../../index.html">← Back to ProConnect Portfolio</a>
+  </div>
+
+  <header>
+    <a class="logo" href="#home">Bella Cucina.</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Our Menu</a>
+      <a href="#story">Our Story</a>
+      <a href="#reservation">Contact</a>
+      <a class="btn" href="#reservation">Book a Table</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">AUTHENTIC ITALIAN CUISINE</span>
+        <h1>A Little Taste of Italy.</h1>
+        <p>Fresh ingredients, handmade pasta and unforgettable moments around the table.</p>
+        <a class="btn" href="#menu">Explore Our Menu</a>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="section-heading">
+        <span class="eyebrow">MADE WITH LOVE</span>
+        <h2>Our Guest Favorites</h2>
+        <p class="muted">Discover a few signature dishes from our sample restaurant menu.</p>
+      </div>
+
+      <div class="menu-grid">
+        <article class="dish">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85" alt="Fresh pasta with herbs" loading="lazy">
+          <div class="dish-content">
+            <div class="dish-title"><span>Garden Pasta</span><span class="price">$18</span></div>
+            <p>Handmade pasta, seasonal vegetables, fresh herbs and parmesan.</p>
+          </div>
+        </article>
+
+        <article class="dish">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=85" alt="Italian pizza" loading="lazy">
+          <div class="dish-content">
+            <div class="dish-title"><span>Classic Pizza</span><span class="price">$16</span></div>
+            <p>Stone-baked pizza topped with tomato, mozzarella and basil.</p>
+          </div>
+        </article>
+
+        <article class="dish">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85" alt="Chocolate dessert cake" loading="lazy">
+          <div class="dish-content">
+            <div class="dish-title"><span>Chocolate Cake</span><span class="price">$9</span></div>
+            <p>A rich chocolate dessert, perfect for ending your meal.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section story" id="story">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85" alt="Elegant restaurant dining room" loading="lazy">
+      <div>
+        <span class="eyebrow">OUR STORY</span>
+        <h2>Good Food. Great Company.</h2>
+        <p>At Bella Cucina, we believe the best memories are made around a table. Our concept brings together Italian-inspired flavors, welcoming hospitality and a relaxed dining atmosphere.</p>
+        <p>This sample website can be customized with a real restaurant's story, menu, photos, location and opening hours.</p>
+        <a class="btn" href="#reservation">Visit Us</a>
+      </div>
+    </section>
+
+    <section class="section reservation" id="reservation">
+      <span class="eyebrow">YOUR TABLE IS WAITING</span>
+      <h2>Make It a Special Evening.</h2>
+      <p>Planning a dinner, a family gathering or a special occasion? Contact us to personalize your dining experience.</p>
+      <a class="btn" href="mailto:hello@example.com?subject=Restaurant%20Website%20Enquiry">Contact the Restaurant</a>
+      <p style="font-size:12px;margin-top:18px">Sample contact link — replace with the restaurant's real details.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Bella Cucina. · Restaurant Website Demo</span>
+    <span>Demo content and prices are for illustration only.</span>
+    <a href="../../index.html">← Back to ProConnect</a>
+  </footer>
+
+  <!-- Contact me on Upwork -->
+  <a
+    class="upwork-button"
+    href="https://www.upwork.com/freelancers/~01e096a106f834c336"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit my Upwork profile to discuss a website project"
+  >
+    Hire Me on Upwork ↗
+  </a>
+</body>
+</html>
+```

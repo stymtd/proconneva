@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShineWorks | Premium Car Wash</title>
+<meta name="description" content="Professional car washing, interior cleaning and premium detailing website demo.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#f7f8fa;color:#18212b;line-height:1.65}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.demo-bar{background:#101923;color:white;text-align:center;padding:10px;font-size:12px}
+.demo-bar a{color:#8ee6f0;text-decoration:underline}
+.topline{background:#08a9bd;color:#071820;text-align:center;padding:9px;font-size:12px;font-weight:bold;letter-spacing:1px}
+header{background:white;display:flex;align-items:center;justify-content:space-between;gap:25px;padding:21px 7%;border-bottom:1px solid #e6e9ec}
+.logo{font-size:25px;font-weight:900;letter-spacing:1px;color:#14202b}
+.logo span{color:#05a7bb}
+nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:bold}
+nav a:hover{color:#079aad}
+.btn{display:inline-block;background:#08a9bd;color:#071820;padding:13px 20px;border:0;border-radius:3px;font-size:13px;font-weight:bold;cursor:pointer}
+.btn:hover{background:#52d5e0}
+.hero{min-height:590px;display:flex;align-items:center;padding:75px 8%;color:white;background:linear-gradient(90deg,rgba(7,18,29,.9),rgba(7,18,29,.25)),url("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero-content{max-width:650px}
+.eyebrow{font-size:12px;font-weight:bold;letter-spacing:3px;color:#079bad}
+.hero .eyebrow{color:#63e4ef}
+h1,h2,h3{line-height:1.2}
+h1,h2{font-family:Georgia,serif;font-weight:normal}
+h1{font-size:clamp(44px,7vw,76px);margin:20px 0}
+.hero p{max-width:520px;color:#e3e9ed;margin-bottom:30px;font-size:17px}
+.section{padding:80px 8%}
+.heading{text-align:center;max-width:680px;margin:0 auto 42px}
+.heading h2{font-size:clamp(32px,4vw,47px);margin:12px 0}
+.muted{color:#6d7780}
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.service{background:white;border:1px solid #e7eaed;box-shadow:0 8px 25px #0a1e2d0a;overflow:hidden}
+.image-wrap{height:240px;background:#dce4e8;overflow:hidden}
+.image-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.service:hover .image-wrap img{transform:scale(1.04)}
+.service-info{padding:23px}
+.service-info h3{font-size:22px;margin-bottom:10px}
+.service-info p{font-size:14px;color:#68737d;margin-bottom:17px}
+.learn{font-size:13px;color:#008b9e;font-weight:bold}
+.packages{background:#101923;color:white}
+.packages .muted{color:#c2cbd1}
+.package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.package{background:#192632;border:1px solid #34414b;padding:30px 25px;position:relative}
+.package.featured{border:2px solid #08b6c9}
+.popular{display:inline-block;background:#08b6c9;color:#071820;padding:5px 9px;font-size:10px;font-weight:bold;letter-spacing:1px;margin-bottom:15px}
+.package h3{font-family:Georgia,serif;font-size:25px;margin-bottom:12px}
+.price{font-size:38px;font-weight:bold;margin:15px 0}
+.price small{font-size:13px;color:#b7c2ca;font-weight:normal}
+.package p{font-size:14px;color:#c5cdd3;margin-bottom:20px}
+.package ul{list-style:none;margin:20px 0 25px;font-size:14px;color:#e0e5e8}
+.package li{padding:8px 0;border-bottom:1px solid #34414b}
+.package li:before{content:"✓";color:#5ce2ed;margin-right:10px}
+.package .btn{width:100%;text-align:center}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-photo{width:100%;height:430px;object-fit:cover;background:#dce4e8}
+.about h2{font-size:clamp(34px,4vw,48px);margin:15px 0}
+.about p{color:#68737d;margin:15px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}
+.stat{padding:16px 10px;background:#eaf4f5;text-align:center}
+.stat strong{display:block;font-size:23px;color:#078b9e}
+.stat span{font-size:11px;color:#596872}
+.reviews{background:#eaf0f3}
+.review-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.review{background:white;padding:25px}
+.stars{color:#e7a832;letter-spacing:3px;margin-bottom:12px}
+.review p{font-size:14px;color:#63707a;margin-bottom:17px}
+.review strong{font-size:14px}
+.booking{background:linear-gradient(90deg,rgba(8,23,34,.91),rgba(8,23,34,.72)),url("https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1600&q=85") center/cover;color:white}
+.booking-layout{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.booking h2{font-size:clamp(34px,4vw,49px);margin:15px 0}
+.booking p{color:#d2dce2;margin-bottom:20px}
+.booking-form{background:white;color:#18212b;padding:28px}
+.booking-form h3{font-family:Georgia,serif;font-size:25px;margin-bottom:18px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12px;font-weight:bold;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #d8dee2;background:white;color:#18212b;border-radius:2px}
+.field textarea{min-height:85px;resize:vertical}
+.booking-form button{width:100%}
+#formMessage{font-size:13px;color:#18744c;margin-top:12px}
+footer{background:#0b141d;color:#d6dfe5;padding:35px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:13px}
+footer a{color:#63dce8}
+.note{font-size:12px;color:#8a969e;text-align:center;margin-top:25px}
+
+/* Floating Upwork hire button */
+.upwork-float{
+position:fixed;
+right:22px;
+bottom:22px;
+z-index:9999;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:7px;
+padding:14px 20px;
+background:#14a800;
+color:#ffffff;
+font-family:Arial,sans-serif;
+font-size:14px;
+font-weight:700;
+text-decoration:none;
+border-radius:8px;
+box-shadow:0 5px 18px rgba(0,0,0,.22);
+transition:background .2s ease,transform .2s ease;
+}
+.upwork-float:hover{
+background:#108500;
+color:#ffffff;
+transform:translateY(-3px);
+}
+
+@media(max-width:900px){
+header{flex-wrap:wrap}
+nav{width:100%;justify-content:center;flex-wrap:wrap}
+.services,.package-grid,.review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+header{padding:20px 5%;justify-content:center}
+nav{gap:14px;font-size:13px}
+.hero{min-height:500px;padding:55px 7%}
+.section{padding:58px 6%}
+.services,.package-grid,.review-grid,.about,.booking-layout{grid-template-columns:1fr}
+.image-wrap{height:250px}
+.about-photo{height:300px}
+.stats{gap:7px}
+.stat strong{font-size:19px}
+.booking-form{padding:22px}
+footer{flex-direction:column;text-align:center}
+.upwork-float{
+right:12px;
+bottom:12px;
+padding:12px 15px;
+font-size:12px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo-bar">
+ProConnect Portfolio Demo · <a href="../../index.html">Back to Main Website</a>
+</div>
+
+<div class="topline">DRIVE IN DIRTY. DRIVE OUT SHINING.</div>
+
+<header>
+<a href="#home" class="logo">SHINE<span>WORKS</span></a>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#packages">Packages</a>
+<a href="#about">About</a>
+<a href="#booking" class="btn">Book a Wash</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="hero-content">
+<span class="eyebrow">PREMIUM AUTOMOTIVE CARE</span>
+<h1>More Than Clean. It's a Shine Experience.</h1>
+<p>Give your vehicle the care it deserves with professional washing, interior cleaning and premium detailing services.</p>
+<a class="btn" href="#packages">EXPLORE OUR PACKAGES →</a>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="heading">
+<span class="eyebrow">WHAT WE DO</span>
+<h2>Care for Every Detail</h2>
+<p class="muted">Professional care for every vehicle, from a quick wash to a premium finish.</p>
+</div>
+
+<div class="services">
+<article class="service">
+<div class="image-wrap">
+<img class="safe-image" src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1000&q=85" data-backup="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1000&q=85" alt="Car exterior wash" loading="lazy">
+</div>
+<div class="service-info">
+<h3>Exterior Wash</h3>
+<p>Remove road dust and grime with a careful exterior wash and finishing touch.</p>
+<a class="learn" href="#booking">ENQUIRE NOW →</a>
+</div>
+</article>
+
+<article class="service">
+<div class="image-wrap">
+<img class="safe-image" src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1000&q=85" data-backup="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1000&q=85" alt="Professional car cleaning" loading="lazy">
+</div>
+<div class="service-info">
+<h3>Interior Detailing</h3>
+<p>Refresh seats, carpets and interior surfaces for a cleaner, more comfortable drive.</p>
+<a class="learn" href="#booking">ENQUIRE NOW →</a>
+</div>
+</article>
+
+<article class="service">
+<div class="image-wrap">
+<img class="safe-image" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85" data-backup="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=85" alt="Premium detailing on a polished car" loading="lazy">
+</div>
+<div class="service-info">
+<h3>Premium Detailing</h3>
+<p>A more thorough care package for drivers who want extra attention to the finish.</p>
+<a class="learn" href="#booking">ENQUIRE NOW →</a>
+</div>
+</article>
+</div>
+</section>
+
+<section class="section packages" id="packages">
+<div class="heading">
+<span class="eyebrow">SIMPLE & TRANSPARENT</span>
+<h2>Choose Your Shine</h2>
+<p class="muted">Example packages and prices. Customize them for your real business.</p>
+</div>
+
+<div class="package-grid">
+<article class="package">
+<h3>Essential Wash</h3>
+<p>For a quick, everyday refresh.</p>
+<div class="price">$19 <small>/ vehicle</small></div>
+<ul>
+<li>Exterior hand wash</li>
+<li>Wheel cleaning</li>
+<li>Window cleaning</li>
+<li>Hand dry finish</li>
+</ul>
+<a class="btn" href="#booking">SELECT PACKAGE</a>
+</article>
+
+<article class="package featured">
+<span class="popular">MOST POPULAR</span>
+<h3>Complete Clean</h3>
+<p>Inside and out, looking its best.</p>
+<div class="price">$49 <small>/ vehicle</small></div>
+<ul>
+<li>Everything in Essential</li>
+<li>Interior vacuum</li>
+<li>Dashboard wipe-down</li>
+<li>Interior glass cleaning</li>
+</ul>
+<a class="btn" href="#booking">SELECT PACKAGE</a>
+</article>
+
+<article class="package">
+<h3>Detailing Plus</h3>
+<p>Extra attention for a premium finish.</p>
+<div class="price">$89 <small>/ vehicle</small></div>
+<ul>
+<li>Everything in Complete</li>
+<li>Detailed interior clean</li>
+<li>Paint finish treatment</li>
+<li>Premium final inspection</li>
+</ul>
+<a class="btn" href="#booking">SELECT PACKAGE</a>
+</article>
+</div>
+</section>
+
+<section class="section about" id="about">
+<img class="about-photo safe-image" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1100&q=85" data-backup="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1100&q=85" alt="Premium vehicle" loading="lazy">
+
+<div>
+<span class="eyebrow">THE SHINEWORKS DIFFERENCE</span>
+<h2>We Treat Every Car Like Our Own.</h2>
+<p>ShineWorks is a sample automotive brand focused on careful service, convenient booking and a professional customer experience.</p>
+<p>This website concept can be customized with your actual location, services, team, photos and business details.</p>
+
+<div class="stats">
+<div class="stat"><strong>3</strong><span>Sample Packages</span></div>
+<div class="stat"><strong>100%</strong><span>Careful Service*</span></div>
+<div class="stat"><strong>Easy</strong><span>Enquiry Process</span></div>
+</div>
+
+<p style="font-size:11px">*Illustrative portfolio content, not a verified business claim.</p>
+</div>
+</section>
+
+<section class="section reviews">
+<div class="heading">
+<span class="eyebrow">CUSTOMER EXPERIENCE</span>
+<h2>Drivers Love a Clean Finish</h2>
+<p class="muted">Sample review cards demonstrating a possible website layout.</p>
+</div>
+
+<div class="review-grid">
+<article class="review">
+<div class="stars">★★★★★</div>
+<p>“The service options are clear, and the website makes it easy to understand the available packages.”</p>
+<strong>Jordan M.</strong>
+</article>
+
+<article class="review">
+<div class="stars">★★★★★</div>
+<p>“A clean, modern design that makes the business feel organized and professional.”</p>
+<strong>Casey R.</strong>
+</article>
+
+<article class="review">
+<div class="stars">★★★★★</div>
+<p>“The package layout is easy to browse, especially on a mobile screen.”</p>
+<strong>Taylor S.</strong>
+</article>
+</div>
+</section>
+
+<section class="section booking" id="booking">
+<div class="booking-layout">
+
+<div>
+<span class="eyebrow">LET'S GET YOU SHINING</span>
+<h2>Book Your Next Clean.</h2>
+<p>Choose a service and send a sample enquiry. A real business can connect this form to email, a booking tool or a backend service.</p>
+<p>Mobile-friendly design · Clear pricing · Simple enquiry form</p>
+</div>
+
+<form class="booking-form" id="bookingForm">
+<h3>Request an Appointment</h3>
+
+<div class="field">
+<label for="customerName">Your Name</label>
+<input id="customerName" name="name" type="text" placeholder="Enter your name" required>
+</div>
+
+<div class="field">
+<label for="customerEmail">Email Address</label>
+<input id="customerEmail" name="email" type="email" placeholder="you@example.com" required>
+</div>
+
+<div class="field">
+<label for="carService">Choose a Service</label>
+<select id="carService" name="service" required>
+<option value="">Select a package</option>
+<option>Essential Wash — $19</option>
+<option>Complete Clean — $49</option>
+<option>Detailing Plus — $89</option>
+</select>
+</div>
+
+<div class="field">
+<label for="customerNotes">Additional Details</label>
+<textarea id="customerNotes" name="notes" placeholder="Vehicle type or preferred date"></textarea>
+</div>
+
+<button class="btn" type="submit">SEND SAMPLE ENQUIRY</button>
+<p id="formMessage" role="status" aria-live="polite"></p>
+</form>
+
+</div>
+</section>
+</main>
+
+<footer>
+<span>SHINEWORKS · Car Wash Website Demo</span>
+<span>Sample prices and reviews for illustration only.</span>
+<a href="../../index.html">← Back to ProConnect</a>
+</footer>
+
+<!-- Floating Upwork button -->
+<a
+class="upwork-float"
+href="https://www.upwork.com/freelancers/~01e096a106f834c336"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Hire me on Upwork"
+>
+Hire Me on Upwork ↗
+</a>
+
+<script>
+/* Retry with a backup photo if the main image fails. */
+document.querySelectorAll(".safe-image").forEach(function(img){
+  img.addEventListener("error",function(){
+    if(img.dataset.backup && img.src !== img.dataset.backup){
+      img.src = img.dataset.backup;
+    }
+  });
+});
+
+/* Demo booking form: no real data is sent or saved. */
+const bookingForm = document.getElementById("bookingForm");
+const formMessage = document.getElementById("formMessage");
+
+bookingForm.addEventListener("submit",function(event){
+  event.preventDefault();
+  formMessage.textContent = "Thanks! This is a demo form. No appointment has been sent or booked.";
+  bookingForm.reset();
+});
+
+/* Select a package automatically when a package button is clicked. */
+document.querySelectorAll(".package .btn").forEach(function(button){
+  button.addEventListener("click",function(){
+    const packageName = button.closest(".package").querySelector("h3").textContent;
+    const select = document.getElementById("carService");
+    const options = Array.from(select.options);
+
+    const matching = options.find(function(option){
+      return option.textContent.startsWith(packageName);
+    });
+
+    if(matching) select.value = matching.value;
+  });
+});
+</script>
+
+</body>
+</html>

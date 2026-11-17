@@ -1,0 +1,909 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TyrePro | Premium Tyres & Wheel Care</title>
+
+<meta name="description" content="Modern tyre shop website demo with tyre products, search, services and enquiry form.">
+
+
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{font-family:Arial,sans-serif;color:#18212b;background:#fff;line-height:1.6}
+
+a{text-decoration:none;color:inherit}
+
+button,input,select,textarea{font:inherit}
+
+img{display:block;max-width:100%}
+
+:root{--orange:#ff6b24;--dark:#111820;--muted:#6b7580;--light:#f4f6f8}
+
+.demo-bar{background:#0c1117;color:#dbe1e5;text-align:center;padding:9px;font-size:12px}
+
+.demo-bar a{color:#ffad83;text-decoration:underline}
+
+header{padding:19px 7%;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #e7e9ec;background:white}
+
+.logo{font-size:26px;font-weight:900;letter-spacing:1px}
+
+.logo span{color:var(--orange)}
+
+nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:bold}
+
+nav a:hover{color:var(--orange)}
+
+.btn{display:inline-block;border:0;background:var(--orange);color:white;padding:13px 20px;border-radius:4px;font-size:13px;font-weight:bold;cursor:pointer}
+
+.btn:hover{background:#e9530e}
+
+.hero{min-height:570px;display:flex;align-items:center;padding:75px 8%;color:white;background:linear-gradient(90deg,rgba(8,14,21,.94),rgba(8,14,21,.48)),url("https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=85") center/cover}
+
+.hero-content{max-width:660px}
+
+.eyebrow{color:var(--orange);font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase}
+
+.hero .eyebrow{color:#ff9b69}
+
+h1,h2,h3{line-height:1.2}
+
+h1,h2{font-family:Georgia,serif;font-weight:normal}
+
+h1{font-size:clamp(42px,6.5vw,72px);margin:20px 0}
+
+.hero p{font-size:17px;color:#e0e6eb;max-width:530px;margin-bottom:28px}
+
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+.btn-outline{border:1px solid #ffffff85;background:transparent;color:white}
+
+.hero-stats{display:flex;gap:35px;flex-wrap:wrap;margin-top:35px}
+
+.hero-stats strong{font-size:24px;display:block}
+
+.hero-stats span{font-size:12px;color:#d3d9df}
+
+.section{padding:78px 7%}
+
+.heading{text-align:center;max-width:700px;margin:0 auto 38px}
+
+.heading h2{font-size:clamp(32px,4vw,46px);margin:12px 0}
+
+.muted{color:var(--muted)}
+
+.search-panel{background:var(--light);padding:18px;display:flex;gap:12px;flex-wrap:wrap;border-radius:8px;margin-bottom:27px}
+
+.search-panel input,.search-panel select{padding:12px;border:1px solid #d9dfe4;border-radius:4px;background:white;flex:1;min-width:160px}
+
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+
+.product{border:1px solid #e4e8eb;border-radius:8px;overflow:hidden;transition:.25s;background:white}
+
+.product:hover{transform:translateY(-4px);box-shadow:0 12px 30px #15233112}
+
+.product-photo{height:230px;background:#eef0f2;overflow:hidden;position:relative}
+
+.product-photo img{width:100%;height:100%;object-fit:cover}
+
+.product-tag{position:absolute;top:13px;left:13px;background:var(--orange);color:white;padding:5px 10px;font-size:11px;font-weight:bold;border-radius:3px}
+
+.product-info{padding:21px}
+
+.brand{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);font-weight:bold}
+
+.product h3{font-size:21px;margin:7px 0}
+
+.product-desc{font-size:13px;color:var(--muted);min-height:42px}
+
+.specs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+
+.spec{background:var(--light);padding:5px 8px;font-size:11px;border-radius:3px}
+
+.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid #e9ecef;padding-top:15px}
+
+.price{font-size:24px;font-weight:900}
+
+.price small{font-size:11px;color:var(--muted);font-weight:normal}
+
+.product-bottom button{padding:10px 12px;background:var(--dark);color:white;border:0;border-radius:4px;cursor:pointer;font-size:12px;font-weight:bold}
+
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)}
+
+.services-section{background:var(--dark);color:white}
+
+.services-section .muted{color:#bdc6cd}
+
+.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:35px}
+
+.service-card{padding:27px;background:#1b2631;border:1px solid #34414b;border-radius:7px}
+
+.service-icon{font-size:32px}
+
+.service-card h3{font-size:21px;margin:14px 0 8px}
+
+.service-card p{font-size:14px;color:#c4cdd4}
+
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+
+.why-photo{height:420px;width:100%;object-fit:cover;background:#edf0f2;border-radius:6px}
+
+.why-copy h2{font-size:clamp(32px,4vw,45px);margin:14px 0}
+
+.why-copy p{color:var(--muted);margin:14px 0}
+
+.check-list{list-style:none;margin-top:20px}
+
+.check-list li{margin:11px 0;font-weight:bold;font-size:14px}
+
+.check-list li:before{content:"✓";color:var(--orange);font-weight:bold;margin-right:10px}
+
+.contact{background:var(--light)}
+
+.contact-box{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:start;background:white;padding:35px;border-radius:8px}
+
+.contact-box h2{font-size:clamp(31px,4vw,43px);margin:12px 0}
+
+.contact-box p{color:var(--muted);margin-top:12px}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+
+.field{margin-bottom:13px}
+
+.field label{display:block;font-size:12px;font-weight:bold;margin-bottom:6px}
+
+.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #d8dee3;border-radius:4px;background:white;color:#18212b}
+
+.field textarea{min-height:100px;resize:vertical}
+
+.full{grid-column:1/-1}
+
+.form-submit{width:100%}
+
+#formMessage{font-size:13px;color:#18744c;margin-top:12px}
+
+.note{font-size:12px;color:#7b858e;text-align:center;margin-top:20px}
+
+footer{background:#0b1117;color:#c9d1d8;padding:30px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:13px}
+
+footer a{color:#ff9b69}
+
+
+/* Floating Upwork contact button */
+.upwork-button{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:9999;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  background:#14a800;
+  color:#fff;
+  padding:14px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  font-weight:bold;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);
+  transition:background .2s,transform .2s;
+}
+.upwork-button:hover{
+  background:#108500;
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+@media(max-width:900px){
+
+header{flex-wrap:wrap}
+
+nav{width:100%;justify-content:center;flex-wrap:wrap}
+
+.products{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.service-grid{grid-template-columns:1fr 1fr}
+
+.why-grid{gap:28px}
+
+}
+
+@media(max-width:600px){
+  .upwork-button{
+    right:12px;
+    bottom:12px;
+    padding:12px 16px;
+    font-size:13px;
+  }
+
+
+header{justify-content:center;padding:19px 5%}
+
+nav{gap:13px;font-size:12px}
+
+.hero{min-height:510px;padding:55px 6%}
+
+.section{padding:55px 5%}
+
+.products,.service-grid,.why-grid,.contact-box{grid-template-columns:1fr}
+
+.product-photo{height:240px}
+
+.why-photo{height:290px}
+
+.contact-box{padding:23px;gap:25px}
+
+.form-grid{grid-template-columns:1fr}
+
+.full{grid-column:auto}
+
+.hero-stats{gap:22px}
+
+footer{flex-direction:column;text-align:center}
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<div class="demo-bar">
+
+ProConnect Portfolio Demo · <a href="../../index.html">Back to Main Website</a>
+
+</div>
+
+
+
+<header>
+
+<a href="#home" class="logo">TYRE<span>PRO</span></a>
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#products">Tyres</a>
+
+<a href="#services">Services</a>
+
+<a href="#about">About</a>
+
+<a class="btn" href="#contact">Get a Quote</a>
+
+</nav>
+
+</header>
+
+
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="eyebrow">Performance. Safety. Reliability.</div>
+
+<h1>The Right Tyres. The Right Drive.</h1>
+
+<p>Discover quality tyres for everyday driving, long road trips and high-performance vehicles. Find your fit with our easy-to-browse tyre collection.</p>
+
+<div class="hero-actions">
+
+<a class="btn" href="#products">EXPLORE TYRES →</a>
+
+<a class="btn btn-outline" href="#services">OUR SERVICES</a>
+
+</div>
+
+<div class="hero-stats">
+
+<div><strong>All Makes*</strong><span>Vehicle compatibility</span></div>
+
+<div><strong>Expert Care*</strong><span>Tyre fitting services</span></div>
+
+<div><strong>Easy</strong><span>Quote enquiries</span></div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section" id="products">
+
+<div class="heading">
+
+<div class="eyebrow">OUR TYRE COLLECTION</div>
+
+<h2>Find Your Perfect Fit</h2>
+
+<p class="muted">Browse the sample catalogue by tyre name, type or size.</p>
+
+</div>
+
+
+
+<div class="search-panel">
+
+<input id="searchInput" type="search" placeholder="Search tyres or brands..." aria-label="Search tyres">
+
+<select id="typeFilter" aria-label="Filter by tyre type">
+
+<option value="all">All tyre types</option>
+
+<option value="touring">Touring</option>
+
+<option value="performance">Performance</option>
+
+<option value="suv">SUV / 4x4</option>
+
+<option value="allseason">All-season</option>
+
+</select>
+
+<select id="sortFilter" aria-label="Sort tyres by price">
+
+<option value="featured">Featured products</option>
+
+<option value="low">Price: low to high</option>
+
+<option value="high">Price: high to low</option>
+
+</select>
+
+</div>
+
+
+
+<div class="products" id="productGrid"></div>
+
+<p class="note">Portfolio demo: product names, prices and specifications are illustrative. Confirm actual stock and vehicle fitment with a tyre professional.</p>
+
+</section>
+
+
+
+<section class="section services-section" id="services">
+
+<div class="heading">
+
+<div class="eyebrow">MORE THAN TYRES</div>
+
+<h2>Complete Wheel Care</h2>
+
+<p class="muted">Showcase your full range of automotive services in one place.</p>
+
+</div>
+
+<div class="service-grid">
+
+<article class="service-card">
+
+<div class="service-icon">🛞</div>
+
+<h3>Tyre Fitting</h3>
+
+<p>Professional tyre installation and fitment enquiries for your vehicle.</p>
+
+</article>
+
+<article class="service-card">
+
+<div class="service-icon">⚙️</div>
+
+<h3>Wheel Balancing</h3>
+
+<p>Promote balancing services designed to help support smooth driving.</p>
+
+</article>
+
+<article class="service-card">
+
+<div class="service-icon">🔧</div>
+
+<h3>Tyre Inspection</h3>
+
+<p>Enquire about tyre condition, tread wear and replacement options.</p>
+
+</article>
+
+</div>
+
+</section>
+
+
+
+<section class="section why-grid" id="about">
+
+<img class="why-photo safe-image" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1100&q=85" data-backup="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1100&q=85" alt="Automotive workshop" loading="lazy">
+
+<div class="why-copy">
+
+<div class="eyebrow">WHY CHOOSE TYREPRO</div>
+
+<h2>Confident Choices Start Here.</h2>
+
+<p>TyrePro is a sample tyre retailer website concept with a clean catalogue, helpful service information and an easy enquiry process.</p>
+
+<p>Customize this design with your real business information, supported brands, product stock and verified offers.</p>
+
+<ul class="check-list">
+
+<li>Easy-to-browse tyre catalogue</li>
+
+<li>Search and price filters</li>
+
+<li>Mobile-friendly layout</li>
+
+<li>Simple quote request form</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<section class="section contact" id="contact">
+
+<div class="contact-box">
+
+<div>
+
+<div class="eyebrow">NEED HELP CHOOSING?</div>
+
+<h2>Get a Tyre Quote.</h2>
+
+<p>Tell us which tyres or services you are interested in. This portfolio demo displays a confirmation only; it does not send or store your information.</p>
+
+<p><strong>TyrePro</strong><br>Sample automotive retail website</p>
+
+</div>
+
+
+
+<form id="quoteForm">
+
+<div class="form-grid">
+
+<div class="field">
+
+<label for="customerName">Your Name</label>
+
+<input id="customerName" name="name" required placeholder="Enter your name">
+
+</div>
+
+<div class="field">
+
+<label for="customerEmail">Email Address</label>
+
+<input id="customerEmail" name="email" type="email" required placeholder="you@example.com">
+
+</div>
+
+<div class="field">
+
+<label for="vehicle">Vehicle Type</label>
+
+<select id="vehicle" name="vehicle" required>
+
+<option value="">Select vehicle</option>
+
+<option>Car</option>
+
+<option>SUV / 4x4</option>
+
+<option>Van</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="field">
+
+<label for="tyreInterest">Tyre of Interest</label>
+
+<select id="tyreInterest" name="tyre" required>
+
+<option value="">Choose a product</option>
+
+</select>
+
+</div>
+
+<div class="field full">
+
+<label for="details">Additional Details</label>
+
+<textarea id="details" name="details" placeholder="Enter tyre size or your enquiry"></textarea>
+
+</div>
+
+<div class="field full">
+
+<button class="btn form-submit" type="submit">SUBMIT SAMPLE ENQUIRY →</button>
+
+<p id="formMessage" role="status" aria-live="polite"></p>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+<a class="logo" href="#home">TYRE<span>PRO</span></a>
+
+<span>Tyre retailer portfolio demo · Sample products and pricing</span>
+
+<a href="../../index.html">← Back to ProConnect</a>
+
+</footer>
+
+
+
+
+<a class="upwork-button"
+   href="https://www.upwork.com/freelancers/~01e096a106f834c336"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Visit my Upwork profile to discuss a website project">
+  Hire Me on Upwork ↗
+</a>
+
+<script>
+
+const tyres = [
+
+{
+
+name:"RoadGrip Touring",
+
+brand:"RoadGrip",
+
+type:"touring",
+
+price:89,
+
+size:"205/55 R16",
+
+tag:"BEST SELLER",
+
+desc:"A sample touring tyre for everyday commuting.",
+
+image:"https://images.unsplash.com/photo-1578844251758-2f71da64c9fc?auto=format&fit=crop&w=900&q=85",
+
+backup:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=85"
+
+},
+
+{
+
+name:"Velocity Sport",
+
+brand:"Velocity",
+
+type:"performance",
+
+price:129,
+
+size:"225/45 R17",
+
+tag:"PERFORMANCE",
+
+desc:"A sample performance option for sporty road driving.",
+
+image:"https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=900&q=85",
+
+backup:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85"
+
+},
+
+{
+
+name:"TrailMaster SUV",
+
+brand:"TrailMaster",
+
+type:"suv",
+
+price:149,
+
+size:"265/60 R18",
+
+tag:"SUV / 4X4",
+
+desc:"A sample SUV tyre listing for larger vehicles.",
+
+image:"https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=85",
+
+backup:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=85"
+
+},
+
+{
+
+name:"AllSeason Plus",
+
+brand:"AllSeason",
+
+type:"allseason",
+
+price:99,
+
+size:"215/60 R16",
+
+tag:"ALL-SEASON",
+
+desc:"A sample all-season tyre catalogue item.",
+
+image:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=85",
+
+backup:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85"
+
+},
+
+{
+
+name:"UrbanDrive Comfort",
+
+brand:"UrbanDrive",
+
+type:"touring",
+
+price:79,
+
+size:"195/65 R15",
+
+tag:"EVERYDAY",
+
+desc:"A sample option for everyday city driving.",
+
+image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
+
+backup:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=85"
+
+},
+
+{
+
+name:"TrackEdge Pro",
+
+brand:"TrackEdge",
+
+type:"performance",
+
+price:169,
+
+size:"245/40 R19",
+
+tag:"PREMIUM",
+
+desc:"A sample premium performance tyre listing.",
+
+image:"https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=85",
+
+backup:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85"
+
+}
+
+];
+
+
+
+const grid = document.getElementById("productGrid");
+
+const searchInput = document.getElementById("searchInput");
+
+const typeFilter = document.getElementById("typeFilter");
+
+const sortFilter = document.getElementById("sortFilter");
+
+const tyreInterest = document.getElementById("tyreInterest");
+
+
+
+function attachImageFallbacks(root){
+
+  root.querySelectorAll("img[data-backup]").forEach(function(img){
+
+    img.addEventListener("error",function(){
+
+      if(img.dataset.backup && img.src !== img.dataset.backup){
+
+        img.src = img.dataset.backup;
+
+      }else{
+
+        img.style.display = "none";
+
+        img.parentElement.style.background = "linear-gradient(135deg,#e3e7ea,#bbc4cb)";
+
+      }
+
+    });
+
+  });
+
+}
+
+
+
+function renderProducts(){
+
+  let results = tyres.filter(function(tyre){
+
+    const text = (tyre.name+" "+tyre.brand+" "+tyre.size).toLowerCase();
+
+    const matchesSearch = text.includes(searchInput.value.toLowerCase());
+
+    const matchesType = typeFilter.value === "all" || tyre.type === typeFilter.value;
+
+    return matchesSearch && matchesType;
+
+  });
+
+
+
+  if(sortFilter.value === "low") results.sort((a,b)=>a.price-b.price);
+
+  if(sortFilter.value === "high") results.sort((a,b)=>b.price-a.price);
+
+
+
+  grid.innerHTML = "";
+
+
+
+  if(results.length === 0){
+
+    grid.innerHTML = '<div class="empty">No matching tyres found. Try another search or filter.</div>';
+
+    return;
+
+  }
+
+
+
+  results.forEach(function(tyre){
+
+    const card = document.createElement("article");
+
+    card.className = "product";
+
+    card.innerHTML = `
+
+      <div class="product-photo">
+
+        <img src="${tyre.image}" data-backup="${tyre.backup}" alt="${tyre.name} sample product" loading="lazy">
+
+        <span class="product-tag">${tyre.tag}</span>
+
+      </div>
+
+      <div class="product-info">
+
+        <span class="brand">${tyre.brand}</span>
+
+        <h3>${tyre.name}</h3>
+
+        <p class="product-desc">${tyre.desc}</p>
+
+        <div class="specs"><span class="spec">Size: ${tyre.size}</span><span class="spec">Sample listing</span></div>
+
+        <div class="product-bottom">
+
+          <span class="price">$${tyre.price}<small> / tyre*</small></span>
+
+          <button type="button" data-tyre="${tyre.name}">GET QUOTE →</button>
+
+        </div>
+
+      </div>`;
+
+    grid.appendChild(card);
+
+  });
+
+
+
+  attachImageFallbacks(grid);
+
+}
+
+
+
+tyres.forEach(function(tyre){
+
+  const option = document.createElement("option");
+
+  option.value = tyre.name;
+
+  option.textContent = tyre.name;
+
+  tyreInterest.appendChild(option);
+
+});
+
+
+
+grid.addEventListener("click",function(event){
+
+  const button = event.target.closest("button[data-tyre]");
+
+  if(!button) return;
+
+  tyreInterest.value = button.dataset.tyre;
+
+  document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+
+});
+
+
+
+[searchInput,typeFilter,sortFilter].forEach(function(control){
+
+  control.addEventListener("input",renderProducts);
+
+});
+
+
+
+document.getElementById("quoteForm").addEventListener("submit",function(event){
+
+  event.preventDefault();
+
+  document.getElementById("formMessage").textContent =
+
+    "Thank you! This is a demo form. Your enquiry was not sent or saved.";
+
+  this.reset();
+
+});
+
+
+
+attachImageFallbacks(document);
+
+renderProducts();
+
+</script>
+
+</body>
+
+</html>

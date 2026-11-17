@@ -1,0 +1,744 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NOVA Store | Modern Shopping Demo</title>
+
+  <meta name="description" content="A modern ecommerce store website portfolio demo.">
+
+  <style>
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    html{scroll-behavior:smooth}
+
+    body{font-family:Arial,sans-serif;color:#202020;background:#fff}
+
+    a{text-decoration:none;color:inherit}
+
+    button,input{font:inherit}
+
+    button{cursor:pointer}
+
+    .demo-bar{background:#171717;color:#fff;text-align:center;padding:10px;font-size:12px}
+
+    .demo-bar a{color:#e9bd83;text-decoration:underline}
+
+    .topbar{background:#f5f4f0;text-align:center;padding:9px;font-size:12px;letter-spacing:1px}
+
+    header{padding:22px 7%;display:flex;align-items:center;justify-content:space-between;gap:25px;border-bottom:1px solid #eee}
+
+    .logo{font-size:29px;font-weight:900;letter-spacing:3px}
+
+    .logo span{color:#b77c46}
+
+    nav{display:flex;gap:25px;font-size:14px}
+
+    nav a:hover{color:#b77c46}
+
+    .header-tools{display:flex;gap:15px;align-items:center}
+
+    .search{width:175px;padding:11px 12px;border:1px solid #ddd;border-radius:3px;outline:none}
+
+    .cart-button{border:0;background:#202020;color:white;padding:11px 15px;border-radius:3px}
+
+    .hero{display:grid;grid-template-columns:1fr 1fr;min-height:470px;background:#f4f0e9}
+
+    .hero-copy{padding:70px 10% 70px 15%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+
+    .eyebrow{font-size:12px;letter-spacing:3px;color:#a36b3b;font-weight:bold}
+
+    h1,h2,h3{line-height:1.2}
+
+    h1,h2{font-family:Georgia,serif;font-weight:normal}
+
+    h1{font-size:clamp(42px,5.5vw,67px);margin:20px 0}
+
+    .hero-copy p{line-height:1.8;color:#64615c;margin-bottom:28px;max-width:420px}
+
+    .btn{display:inline-block;padding:14px 24px;background:#202020;color:white;border:0;font-size:13px;font-weight:bold}
+
+    .btn:hover{background:#a36b3b}
+
+    .hero-image{min-height:400px;background:url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=85") center/cover}
+
+    .section{padding:75px 7%}
+
+    .section-head{text-align:center;margin-bottom:35px}
+
+    .section-head h2{font-size:42px;margin:12px 0}
+
+    .section-head p{color:#777;font-size:14px}
+
+    .categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+
+    .category{position:relative;overflow:hidden;background:#eee}
+
+    .category img{width:100%;height:230px;object-fit:cover;display:block;transition:transform .3s}
+
+    .category:hover img{transform:scale(1.04)}
+
+    .category-label{padding:17px;background:#f8f6f2;font-size:14px;font-weight:bold;text-align:center}
+
+    .filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px 0 35px}
+
+    .filter{border:1px solid #ddd;background:white;padding:10px 17px;font-size:13px}
+
+    .filter.active,.filter:hover{background:#202020;color:white;border-color:#202020}
+
+    .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+
+    .product{min-width:0}
+
+    .product-image{position:relative;background:#f3f1ed;overflow:hidden}
+
+    .product-image img{width:100%;height:260px;object-fit:cover;display:block;transition:transform .3s}
+
+    .product:hover .product-image img{transform:scale(1.04)}
+
+    .tag{position:absolute;top:12px;left:12px;background:white;padding:5px 9px;font-size:10px;font-weight:bold;letter-spacing:1px}
+
+    .product-info{padding:14px 2px}
+
+    .product-info h3{font-size:15px;font-weight:normal;margin-bottom:7px}
+
+    .product-info p{font-size:12px;color:#777;margin-bottom:10px}
+
+    .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
+
+    .product-price{font-weight:bold;font-size:15px}
+
+    .add-btn{background:white;border:1px solid #202020;padding:9px 10px;font-size:11px;font-weight:bold}
+
+    .add-btn:hover{background:#202020;color:white}
+
+    .promo{display:grid;grid-template-columns:1fr 1fr;background:#eee8de}
+
+    .promo img{width:100%;height:350px;object-fit:cover}
+
+    .promo-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:45px 10%}
+
+    .promo-copy h2{font-size:42px;margin:15px 0}
+
+    .promo-copy p{color:#68645d;margin-bottom:25px}
+
+    .newsletter{text-align:center;background:#f6f4ef}
+
+    .newsletter h2{font-size:38px;margin:12px 0}
+
+    .newsletter p{color:#777;margin-bottom:22px}
+
+    .newsletter-form{display:flex;max-width:450px;margin:auto}
+
+    .newsletter-form input{flex:1;min-width:0;padding:14px;border:1px solid #ddd;background:white}
+
+    .newsletter-form button{padding:14px 18px;background:#202020;color:white;border:0}
+
+    footer{background:#191919;color:#eee;padding:45px 7% 25px}
+
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px;margin-bottom:35px}
+
+    footer h3{font-size:18px;margin-bottom:14px}
+
+    footer p,footer a{font-size:13px;color:#bbb;line-height:2}
+
+    .footer-links{display:flex;flex-direction:column}
+
+    .copyright{border-top:1px solid #393939;padding-top:20px;font-size:12px;color:#aaa;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+    #message{font-size:13px;color:#36704a;margin-top:15px;min-height:20px}
+
+    /* Floating Upwork contact button */
+    .upwork-button{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      z-index:9999;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
+      background:#14a800;
+      color:#fff;
+      padding:14px 20px;
+      border-radius:30px;
+      text-decoration:none;
+      font-family:Arial,sans-serif;
+      font-size:14px;
+      font-weight:bold;
+      box-shadow:0 4px 16px rgba(0,0,0,.25);
+      transition:background .2s,transform .2s;
+    }
+    .upwork-button:hover{
+      background:#108500;
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    @media(max-width:950px){
+
+      header{flex-wrap:wrap}
+
+      nav{order:3;width:100%;justify-content:center;flex-wrap:wrap}
+
+      .products{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+      .categories{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+      .hero-copy{padding:50px 8%}
+
+    }
+
+    @media(max-width:600px){
+      .upwork-button{
+        right:12px;
+        bottom:12px;
+        padding:12px 16px;
+        font-size:13px;
+      }
+
+      header{padding:18px 5%}
+
+      .header-tools{width:100%}
+
+      .search{flex:1;min-width:0}
+
+      .hero{grid-template-columns:1fr}
+
+      .hero-copy{padding:55px 7%}
+
+      .hero-image{min-height:300px}
+
+      .section{padding:55px 5%}
+
+      .section-head h2,.promo-copy h2{font-size:34px}
+
+      .categories{gap:12px}
+
+      .category img{height:165px}
+
+      .products{gap:18px 12px}
+
+      .product-image img{height:200px}
+
+      .product-bottom{align-items:flex-start;flex-direction:column}
+
+      .promo{grid-template-columns:1fr}
+
+      .promo img{height:260px}
+
+      .promo-copy{padding:40px 7%}
+
+      .footer-grid{grid-template-columns:1fr;gap:25px}
+
+      .newsletter-form button{padding:12px}
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="demo-bar">
+
+    ProConnect Portfolio Demo · <a href="../../index.html">Back to Main Website</a>
+
+  </div>
+
+  <div class="topbar">COMPLIMENTARY SHIPPING ON SAMPLE ORDERS OVER $75</div>
+
+  <header>
+
+    <a class="logo" href="#home">NO<span>V</span>A.</a>
+
+    <nav>
+
+      <a href="#home">Home</a>
+
+      <a href="#categories">Categories</a>
+
+      <a href="#shop">Shop</a>
+
+      <a href="#about">Our Story</a>
+
+    </nav>
+
+    <div class="header-tools">
+
+      <input class="search" id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+
+      <button class="cart-button" id="cartButton" type="button">Bag (<span id="cartCount">0</span>)</button>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-copy">
+
+        <span class="eyebrow">THE EVERYDAY COLLECTION</span>
+
+        <h1>Find Your Own Kind of Style.</h1>
+
+        <p>
+
+          Discover thoughtfully selected essentials for modern living.
+
+          Simple designs, timeless details and everyday inspiration.
+
+        </p>
+
+        <a class="btn" href="#shop">SHOP THE COLLECTION</a>
+
+      </div>
+
+      <div class="hero-image" role="img" aria-label="Modern fashion store interior"></div>
+
+    </section>
+
+    <section class="section" id="categories">
+
+      <div class="section-head">
+
+        <span class="eyebrow">EXPLORE THE STORE</span>
+
+        <h2>Shop by Category</h2>
+
+        <p>Find something that fits your everyday style.</p>
+
+      </div>
+
+      <div class="categories">
+
+        <a class="category" href="#shop" data-category-link="Fashion">
+
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85" alt="Fashion collection" loading="lazy">
+
+          <div class="category-label">Fashion</div>
+
+        </a>
+
+        <a class="category" href="#shop" data-category-link="Accessories">
+
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85" alt="Watch and accessories" loading="lazy">
+
+          <div class="category-label">Accessories</div>
+
+        </a>
+
+        <a class="category" href="#shop" data-category-link="Home">
+
+          <img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=700&q=85" alt="Minimal home decor" loading="lazy">
+
+          <div class="category-label">Home & Living</div>
+
+        </a>
+
+        <a class="category" href="#shop" data-category-link="Beauty">
+
+          <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85" alt="Beauty and skincare products" loading="lazy">
+
+          <div class="category-label">Beauty</div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+    <section class="section" id="shop">
+
+      <div class="section-head">
+
+        <span class="eyebrow">CURATED FOR YOU</span>
+
+        <h2>Featured Products</h2>
+
+        <p>Explore our sample collection and try the interactive product filters.</p>
+
+      </div>
+
+      <div class="filters">
+
+        <button class="filter active" type="button" data-filter="All">All Products</button>
+
+        <button class="filter" type="button" data-filter="Fashion">Fashion</button>
+
+        <button class="filter" type="button" data-filter="Accessories">Accessories</button>
+
+        <button class="filter" type="button" data-filter="Home">Home & Living</button>
+
+        <button class="filter" type="button" data-filter="Beauty">Beauty</button>
+
+      </div>
+
+      <div class="products" id="productGrid">
+
+        <article class="product" data-category="Fashion" data-name="Everyday Tote Bag">
+
+          <div class="product-image">
+
+            <span class="tag">BESTSELLER</span>
+
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85" alt="Everyday tote bag" loading="lazy">
+
+          </div>
+
+          <div class="product-info">
+
+            <h3>Everyday Tote Bag</h3>
+
+            <p>Fashion · Everyday essential</p>
+
+            <div class="product-bottom"><span class="product-price">$39.00</span><button class="add-btn" type="button" data-product="Everyday Tote Bag">ADD TO BAG +</button></div>
+
+          </div>
+
+        </article>
+
+        <article class="product" data-category="Accessories" data-name="Classic Wristwatch">
+
+          <div class="product-image">
+
+            <span class="tag">POPULAR</span>
+
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85" alt="Classic wristwatch" loading="lazy">
+
+          </div>
+
+          <div class="product-info">
+
+            <h3>Classic Wristwatch</h3>
+
+            <p>Accessories · Timeless design</p>
+
+            <div class="product-bottom"><span class="product-price">$59.00</span><button class="add-btn" type="button" data-product="Classic Wristwatch">ADD TO BAG +</button></div>
+
+          </div>
+
+        </article>
+
+        <article class="product" data-category="Home" data-name="Ceramic Table Vase">
+
+          <div class="product-image">
+
+            <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=85" alt="Decorative ceramic vase" loading="lazy">
+
+          </div>
+
+          <div class="product-info">
+
+            <h3>Ceramic Table Vase</h3>
+
+            <p>Home & Living · Minimal decor</p>
+
+            <div class="product-bottom"><span class="product-price">$28.00</span><button class="add-btn" type="button" data-product="Ceramic Table Vase">ADD TO BAG +</button></div>
+
+          </div>
+
+        </article>
+
+        <article class="product" data-category="Beauty" data-name="Daily Skincare Set">
+
+          <div class="product-image">
+
+            <span class="tag">NEW</span>
+
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=85" alt="Skincare product collection" loading="lazy">
+
+          </div>
+
+          <div class="product-info">
+
+            <h3>Daily Skincare Set</h3>
+
+            <p>Beauty · Daily care</p>
+
+            <div class="product-bottom"><span class="product-price">$32.00</span><button class="add-btn" type="button" data-product="Daily Skincare Set">ADD TO BAG +</button></div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <p id="message" role="status" aria-live="polite"></p>
+
+    </section>
+
+    <section class="promo" id="about">
+
+      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1100&q=85" alt="Modern retail store" loading="lazy">
+
+      <div class="promo-copy">
+
+        <span class="eyebrow">OUR PHILOSOPHY</span>
+
+        <h2>Less, But Better.</h2>
+
+        <p>
+
+          NOVA is a sample ecommerce brand built around clean design,
+
+          thoughtful product selection and a shopping experience
+
+          that feels simple and enjoyable.
+
+        </p>
+
+        <a class="btn" href="#shop">DISCOVER THE COLLECTION</a>
+
+      </div>
+
+    </section>
+
+    <section class="section newsletter">
+
+      <span class="eyebrow">STAY IN THE LOOP</span>
+
+      <h2>A Little Something for Your Inbox.</h2>
+
+      <p>Try the sample newsletter form to preview the store interaction.</p>
+
+      <form class="newsletter-form" id="newsletterForm">
+
+        <input type="email" placeholder="Your email address" aria-label="Your email address" required>
+
+        <button type="submit">SIGN UP</button>
+
+      </form>
+
+      <p id="newsletterMessage" role="status" aria-live="polite" style="margin-top:15px"></p>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <a class="logo" href="#home" style="color:white">NO<span>V</span>A.</a>
+
+        <p style="max-width:330px;margin-top:15px">
+
+          A modern ecommerce website concept for a clean, polished
+
+          and user-friendly shopping experience.
+
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3>Explore</h3>
+
+        <div class="footer-links">
+
+          <a href="#categories">Categories</a>
+
+          <a href="#shop">Featured Products</a>
+
+          <a href="#about">Our Story</a>
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <h3>Portfolio</h3>
+
+        <div class="footer-links">
+
+          <a href="../../index.html">ProConnect Home</a>
+
+          <a href="../restaurant/index.html">Restaurant Demo</a>
+
+          <a href="../spa/index.html">Spa Demo</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+
+      <span>© <span id="year"></span> NOVA Store Demo</span>
+
+      <span>Sample products and prices. No real orders or payments are processed.</span>
+
+    </div>
+
+  </footer>
+
+  <a class="upwork-button"
+     href="https://www.upwork.com/freelancers/~01e096a106f834c336"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Visit my Upwork profile to discuss a website project">
+    Hire Me on Upwork ↗
+  </a>
+
+<script>
+
+    const filterButtons = document.querySelectorAll(".filter");
+
+    const products = document.querySelectorAll(".product");
+
+    const searchInput = document.getElementById("searchInput");
+
+    const message = document.getElementById("message");
+
+    const cartCount = document.getElementById("cartCount");
+
+    let selectedCategory = "All";
+
+    let cartItems = 0;
+
+    function updateProducts() {
+
+      const searchTerm = searchInput.value.trim().toLowerCase();
+
+      let visibleCount = 0;
+
+      products.forEach(product => {
+
+        const matchesCategory =
+
+          selectedCategory === "All" ||
+
+          product.dataset.category === selectedCategory;
+
+        const matchesSearch =
+
+          product.dataset.name.toLowerCase().includes(searchTerm) ||
+
+          product.dataset.category.toLowerCase().includes(searchTerm);
+
+        const visible = matchesCategory && matchesSearch;
+
+        product.style.display = visible ? "" : "none";
+
+        if (visible) visibleCount++;
+
+      });
+
+      message.textContent = visibleCount === 0
+
+        ? "No matching products found. Try another search."
+
+        : "";
+
+    }
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        selectedCategory = button.dataset.filter;
+
+        filterButtons.forEach(item => item.classList.remove("active"));
+
+        button.classList.add("active");
+
+        updateProducts();
+
+      });
+
+    });
+
+    document.querySelectorAll("[data-category-link]").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        selectedCategory = link.dataset.categoryLink;
+
+        filterButtons.forEach(button => {
+
+          button.classList.toggle(
+
+            "active",
+
+            button.dataset.filter === selectedCategory
+
+          );
+
+        });
+
+        updateProducts();
+
+      });
+
+    });
+
+    searchInput.addEventListener("input", updateProducts);
+
+    document.querySelectorAll(".add-btn").forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        cartItems++;
+
+        cartCount.textContent = cartItems;
+
+        message.textContent =
+
+          button.dataset.product + " added to your demo bag.";
+
+      });
+
+    });
+
+    document.getElementById("cartButton").addEventListener("click", () => {
+
+      message.textContent = cartItems === 0
+
+        ? "Your demo bag is empty. Add a product to try it."
+
+        : "Your demo bag contains " + cartItems +
+
+          (cartItems === 1 ? " item." : " items.") +
+
+          " This demo does not process checkout or payments.";
+
+      document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
+
+    });
+
+    document.getElementById("newsletterForm").addEventListener("submit", event => {
+
+      event.preventDefault();
+
+      document.getElementById("newsletterMessage").textContent =
+
+        "Thanks! This is a demo form; no email has been subscribed.";
+
+      event.target.reset();
+
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+  </script>
+
+</body>
+
+</html>

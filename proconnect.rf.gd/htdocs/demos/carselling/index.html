@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | Premium Cars for Sale</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{--dark:#101820;--gold:#e9b44c;--muted:#68727d;--light:#f5f7fa}
+
+body{font-family:Arial,sans-serif;color:var(--dark);background:#fff;line-height:1.6}
+
+a{text-decoration:none;color:inherit}
+
+button,input,select{font:inherit}
+
+header{background:var(--dark);color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+.logo{font-size:25px;font-weight:900;letter-spacing:1px}.logo span{color:var(--gold)}
+
+nav{display:flex;gap:25px;align-items:center;flex-wrap:wrap;font-size:14px}
+
+nav a:hover{color:var(--gold)}
+
+.btn{display:inline-block;border:0;background:var(--gold);color:#101820;padding:12px 20px;border-radius:5px;font-weight:bold;cursor:pointer}
+
+.hero{min-height:520px;background:linear-gradient(90deg,rgba(9,17,25,.92),rgba(9,17,25,.3)),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85') center/cover;display:flex;align-items:center;padding:70px 8%;color:white}
+
+.hero-content{max-width:620px}.eyebrow{color:var(--gold);font-weight:bold;text-transform:uppercase;letter-spacing:3px;font-size:13px}
+
+h1{font-size:clamp(38px,6vw,66px);line-height:1.1;margin:18px 0}
+
+.hero p{color:#e1e4e8;font-size:17px;max-width:520px;margin-bottom:28px}
+
+.stats{display:flex;gap:35px;flex-wrap:wrap;margin-top:32px}.stats strong{display:block;font-size:24px}.stats span{color:#d1d6dc;font-size:13px}
+
+section{padding:75px 7%}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+
+h2{font-size:clamp(28px,4vw,40px);line-height:1.2}.sub{color:var(--muted);margin-top:8px}
+
+.filters{background:var(--light);padding:18px;border-radius:10px;display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+
+.filters input,.filters select{background:white;border:1px solid #dce1e6;padding:12px;border-radius:5px;flex:1;min-width:160px;color:var(--dark)}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
+
+.car-card{border:1px solid #e5e8eb;border-radius:10px;overflow:hidden;transition:.25s;background:white}
+
+.car-card:hover{transform:translateY(-5px);box-shadow:0 14px 35px #14202b12}
+
+.car-image{height:210px;position:relative;background:#e9edf0}.car-image img{width:100%;height:100%;object-fit:cover;display:block}
+
+.tag{position:absolute;top:13px;left:13px;background:var(--gold);padding:5px 10px;border-radius:4px;font-size:11px;font-weight:bold}
+
+.car-info{padding:20px}.car-info h3{font-size:20px}.year{font-size:13px;color:var(--muted);margin:3px 0 14px}
+
+.specs{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px solid #e8ebee;border-bottom:1px solid #e8ebee;padding:12px 0;font-size:12px;color:#4f5964}
+
+.price-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:17px}.price{font-size:23px;font-weight:800}.price-row button{background:var(--dark);color:white;border:0;padding:10px 12px;border-radius:4px;cursor:pointer}
+
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted)}
+
+.why{background:var(--dark);color:white}.why .sub{color:#c3cbd2}
+
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:35px}
+
+.feature{padding:25px;border:1px solid #ffffff20;border-radius:9px}.feature .icon{font-size:30px}.feature h3{margin:12px 0 7px}.feature p{font-size:14px;color:#c3cbd2}
+
+.contact{background:var(--light)}.contact-box{background:white;border-radius:12px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+
+.contact form{display:grid;gap:12px}.contact input,.contact select,.contact textarea{width:100%;padding:13px;border:1px solid #dce1e6;border-radius:5px}.contact textarea{min-height:95px;resize:vertical}
+
+footer{background:#0b1117;color:#b9c1c9;padding:28px 7%;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:13px}
+
+.notice{font-size:12px;color:var(--muted);margin-top:15px}
+
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.features{grid-template-columns:1fr}.hero{min-height:460px}}
+
+@media(max-width:600px){header{padding:18px 5%}nav{gap:14px}.hero{padding:55px 6%;min-height:450px}section{padding:55px 5%}.grid{grid-template-columns:1fr}.contact-box{grid-template-columns:1fr;padding:22px}.stats{gap:22px}}
+
+
+/* Floating Upwork contact button */
+.upwork-button{
+  position:fixed;right:20px;bottom:20px;z-index:9999;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  background:#14a800;color:#fff;padding:14px 20px;border-radius:30px;
+  text-decoration:none;font-family:Arial,sans-serif;font-size:14px;
+  font-weight:bold;box-shadow:0 4px 16px rgba(0,0,0,.25);
+  transition:background .2s,transform .2s;
+}
+.upwork-button:hover{background:#108500;color:#fff;transform:translateY(-2px)}
+@media(max-width:600px){.upwork-button{right:12px;bottom:12px;padding:12px 16px;font-size:13px}}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulseTag{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+header{animation:fadeDown .7s ease both}
+.hero-content{animation:fadeUp .9s ease .15s both}
+.hero-content .eyebrow{animation:fadeIn 1s ease .4s both}
+.hero-content h1{animation:fadeUp .9s ease .5s both}
+.hero-content p{animation:fadeUp .9s ease .65s both}
+.hero-content .btn{animation:fadeUp .9s ease .8s both}
+.stats div{animation:fadeUp .8s ease both}
+.stats div:nth-child(1){animation-delay:.95s}
+.stats div:nth-child(2){animation-delay:1.1s}
+.stats div:nth-child(3){animation-delay:1.25s}
+
+section{animation:fadeUp .8s ease both}
+#inventory{animation-delay:.2s}
+#why-us{animation-delay:.3s}
+#contact{animation-delay:.4s}
+
+.car-card{animation:fadeUp .7s ease both}
+.car-card:nth-child(1){animation-delay:.15s}
+.car-card:nth-child(2){animation-delay:.28s}
+.car-card:nth-child(3){animation-delay:.41s}
+.car-card:nth-child(4){animation-delay:.54s}
+.car-card:nth-child(5){animation-delay:.67s}
+.car-card:nth-child(6){animation-delay:.8s}
+
+.car-card{transition:transform .25s ease,box-shadow .25s ease}
+.car-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 18px 40px rgba(20,32,43,.18)}
+.car-card:hover .car-image img{transform:scale(1.06)}
+.car-image img{transition:transform .4s ease}
+
+.tag{animation:pulseTag 2.5s ease-in-out infinite}
+
+.feature{transition:transform .25s ease,border-color .25s ease}
+.feature:hover{transform:translateY(-6px);border-color:var(--gold)}
+.feature .icon{animation:floatY 3s ease-in-out infinite;display:inline-block}
+
+.btn,.price-row button{transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.btn:hover,.price-row button:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(233,180,76,.35)}
+
+html{scroll-behavior:smooth}
+
+@media(prefers-reduced-motion:reduce){
+*{animation:none!important;transition:none!important}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <a class="logo" href="../../index.html">AUTO<span>LUX</span></a>
+
+  <nav>
+
+    <a href="#inventory">Inventory</a>
+
+    <a href="#why-us">Why AutoLux</a>
+
+    <a href="#contact">Contact</a>
+
+    <a class="btn" href="#inventory">Explore Cars</a>
+
+  </nav>
+
+</header>
+
+
+
+<main>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">Drive something extraordinary</div>
+
+    <h1>Find the car that fits your lifestyle.</h1>
+
+    <p>Explore a curated collection of premium vehicles, from everyday comfort to unforgettable performance.</p>
+
+    <a class="btn" href="#inventory">Browse Our Inventory →</a>
+
+    <div class="stats">
+
+      <div><strong>120+</strong><span>Cars in stock*</span></div>
+
+      <div><strong>15 yrs</strong><span>Industry experience*</span></div>
+
+      <div><strong>5★</strong><span>Customer care*</span></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section id="inventory">
+
+  <div class="section-head">
+
+    <div><div class="eyebrow">Our collection</div><h2>Featured Vehicles</h2><p class="sub">Find your next ride from our featured selection.</p></div>
+
+  </div>
+
+
+
+  <div class="filters">
+
+    <input id="search" type="search" placeholder="Search make or model..." aria-label="Search cars">
+
+    <select id="type" aria-label="Filter by vehicle type">
+
+      <option value="all">All vehicle types</option>
+
+      <option value="SUV">SUV</option>
+
+      <option value="Sedan">Sedan</option>
+
+      <option value="Sports">Sports</option>
+
+      <option value="Electric">Electric</option>
+
+    </select>
+
+    <select id="sort" aria-label="Sort cars">
+
+      <option value="featured">Featured first</option>
+
+      <option value="low">Price: low to high</option>
+
+      <option value="high">Price: high to low</option>
+
+    </select>
+
+  </div>
+
+
+
+  <div class="grid" id="carGrid"></div>
+
+  <p class="notice">*Sample portfolio content. Vehicle details, prices, inventory counts and reviews are illustrative and must be replaced with verified dealer information.</p>
+
+</section>
+
+
+
+<section class="why" id="why-us">
+
+  <div class="eyebrow">The AutoLux difference</div>
+
+  <h2>Buying a car, made simpler.</h2>
+
+  <p class="sub">A polished experience from your first search to your next adventure.</p>
+
+  <div class="features">
+
+    <div class="feature"><div class="icon">🚘</div><h3>Curated Selection</h3><p>Explore a carefully presented range of vehicles for different needs and budgets.</p></div>
+
+    <div class="feature"><div class="icon">🔍</div><h3>Clear Information</h3><p>Compare vehicle specifications and pricing in one convenient place.</p></div>
+
+    <div class="feature"><div class="icon">🤝</div><h3>Personal Support</h3><p>Send an enquiry and let the dealership help you explore your options.</p></div>
+
+  </div>
+
+</section>
+
+
+
+<section class="contact" id="contact">
+
+  <div class="contact-box">
+
+    <div>
+
+      <div class="eyebrow">Let's find your car</div>
+
+      <h2>Have a vehicle in mind?</h2>
+
+      <p class="sub">Tell us what you're looking for. This portfolio demo will show a confirmation without sending or storing your information.</p>
+
+    </div>
+
+    <form id="enquiryForm">
+
+      <input id="name" required placeholder="Your name" aria-label="Your name">
+
+      <input id="email" required type="email" placeholder="Email address" aria-label="Email address">
+
+      <select id="interest" required aria-label="Vehicle of interest">
+
+        <option value="">Select a vehicle</option>
+
+      </select>
+
+      <textarea id="message" placeholder="Tell us what you're looking for" aria-label="Message"></textarea>
+
+      <button class="btn" type="submit">Submit Demo Enquiry →</button>
+
+      <p id="formMessage" role="status"></p>
+
+    </form>
+
+  </div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+  <a class="logo" href="../../index.html">AUTO<span>LUX</span></a>
+
+  <p>Concept dealership website for the ProConnect portfolio.</p>
+
+  <p>© <span id="year"></span> AutoLux Demo</p>
+
+</footer>
+
+
+
+<script>
+
+const cars = [
+
+  {name:"BMW X5",year:2023,type:"SUV",price:58900,miles:"18,200 mi",fuel:"Gasoline",trans:"Automatic",tag:"Popular",image:"https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=900&q=80"},
+
+  {name:"Mercedes-Benz C-Class",year:2022,type:"Sedan",price:36900,miles:"22,400 mi",fuel:"Gasoline",trans:"Automatic",tag:"Luxury",image:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=80"},
+
+  {name:"Porsche 911",year:2023,type:"Sports",price:119900,miles:"8,100 mi",fuel:"Gasoline",trans:"Automatic",tag:"Performance",image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"},
+
+  {name:"Tesla Model 3",year:2024,type:"Electric",price:38900,miles:"6,700 mi",fuel:"Electric",trans:"Automatic",tag:"Electric",image:"https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=900&q=80"},
+
+  {name:"Range Rover Sport",year:2022,type:"SUV",price:72900,miles:"24,800 mi",fuel:"Gasoline",trans:"Automatic",tag:"Premium",image:"https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80"},
+
+  {name:"Audi A6",year:2023,type:"Sedan",price:47900,miles:"12,300 mi",fuel:"Gasoline",trans:"Automatic",tag:"Featured",image:"https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=80"}
+
+];
+
+
+
+const grid = document.getElementById("carGrid");
+
+const search = document.getElementById("search");
+
+const type = document.getElementById("type");
+
+const sort = document.getElementById("sort");
+
+const interest = document.getElementById("interest");
+
+
+
+function renderCars(){
+
+  let results = cars.filter(car =>
+
+    car.name.toLowerCase().includes(search.value.toLowerCase()) &&
+
+    (type.value === "all" || car.type === type.value)
+
+  );
+
+  if(sort.value === "low") results.sort((a,b)=>a.price-b.price);
+
+  if(sort.value === "high") results.sort((a,b)=>b.price-a.price);
+
+
+
+  grid.innerHTML = "";
+
+  if(!results.length){
+
+    grid.innerHTML = '<div class="empty">No matching vehicles. Try a different search.</div>';
+
+    return;
+
+  }
+
+
+
+  results.forEach(car=>{
+
+    const card = document.createElement("article");
+
+    card.className = "car-card";
+
+    card.innerHTML = `
+
+      <div class="car-image">
+
+        <img src="${car.image}" alt="${car.year} ${car.name}" loading="lazy">
+
+        <span class="tag">${car.tag}</span>
+
+      </div>
+
+      <div class="car-info">
+
+        <h3>${car.name}</h3>
+
+        <p class="year">Model year ${car.year}</p>
+
+        <div class="specs"><span>◷ ${car.miles}</span><span>⚙ ${car.trans}</span><span>⛽ ${car.fuel}</span></div>
+
+        <div class="price-row"><span class="price">$${car.price.toLocaleString("en-US")}</span><button type="button" data-car="${car.name}">Enquire →</button></div>
+
+      </div>`;
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+
+cars.forEach(car=>{
+
+  const option = document.createElement("option");
+
+  option.value = car.name;
+
+  option.textContent = car.name;
+
+  interest.appendChild(option);
+
+});
+
+
+
+grid.addEventListener("click",event=>{
+
+  const button = event.target.closest("button[data-car]");
+
+  if(!button) return;
+
+  interest.value = button.dataset.car;
+
+  document.getElementById("contact").scrollIntoView({behavior:"smooth"});
+
+});
+
+
+
+[search,type,sort].forEach(control=>control.addEventListener("input",renderCars));
+
+document.getElementById("enquiryForm").addEventListener("submit",event=>{
+
+  event.preventDefault();
+
+  document.getElementById("formMessage").textContent =
+
+    "Demo only: your enquiry was not sent or saved. Connect a backend to enable real enquiries.";
+
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderCars();
+
+</script>
+
+
+<a class="upwork-button"
+   href="https://www.upwork.com/freelancers/~01e096a106f834c336"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Visit my Upwork profile to discuss a website project">
+  Hire Me on Upwork ↗
+</a>
+
+</body>
+
+</html>

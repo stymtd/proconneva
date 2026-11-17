@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Website Types | ProConnect</title>
+    <meta name="description" content="Explore ProConnect website design categories, including business websites, online stores, beauty salons, restaurants, automotive websites and more."> 
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #f7f8fc;
+            color: #172033;
+        }
+
+        .category-page {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 22px 70px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #6558e8;
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 25px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .category-heading {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 35px;
+        }
+
+        .category-heading h1 {
+            font-size: clamp(30px, 5vw, 44px);
+            margin: 12px 0;
+            color: #172554;
+        }
+
+        .category-heading p {
+            color: #667085;
+            line-height: 1.8;
+        }
+
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .type-card {
+            min-width: 0;
+            background: #ffffff;
+            padding: 23px;
+            border: 1px solid #e7e9f2;
+            border-radius: 15px;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-4px);
+            border-color: #c7d2fe;
+            box-shadow: 0 10px 25px #17255410;
+        }
+
+        .type-card h2 {
+            font-size: 19px;
+            line-height: 1.4;
+            margin: 0 0 10px;
+            color: #172554;
+        }
+
+        .type-card p {
+            color: #667085;
+            line-height: 1.65;
+            min-height: 50px;
+            font-size: 14px;
+        }
+
+        .request-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 11px 15px;
+            border: none;
+            border-radius: 8px;
+            background: #16a085;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .request-link:hover {
+            background: #117a65;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .not-found {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 10px;
+        }
+
+        .category-footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #64748b;
+        }
+
+        .category-footer a {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        @media (max-width: 800px) {
+            .type-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 540px) {
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-page {
+                padding: 32px 16px 50px;
+            }
+
+            .type-card {
+                padding: 21px;
+            }
+
+            .request-link {
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FIXED UPWORK CONTACT BUTTON -->
+    <a
+        class="upwork-float"
+        href="https://www.upwork.com/freelancers/~01e096a106f834c336"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contact me on Upwork"
+    >
+        Contact Me on Upwork ↗
+    </a>
+
+    <!-- CATEGORY CONTENT -->
+    <main class="category-page">
+
+        <a class="back-link" href="services.html">
+            ← All Website Categories
+        </a>
+
+        <header class="category-heading">
+            <div>PROCONNECT SERVICES</div>
+
+            <h1 id="category-title">
+                Explore Website Types
+            </h1>
+
+            <p id="category-description">
+                Choose the type of website that fits your business.
+            </p>
+        </header>
+
+        <section
+            class="type-grid"
+            id="type-grid"
+            aria-label="Website subcategories"
+        ></section>
+
+    </main>
+
+    <footer class="category-footer">
+        <p>
+            Need a different website?
+            <a href="../index.html#portfolio">Explore our demo portfolio</a>
+            or
+            <a
+                href="https://www.upwork.com/freelancers/~01e096a106f834c336"
+                target="_blank"
+                rel="noopener noreferrer"
+            >contact us on Upwork</a>.
+        </p>
+    </footer>
+
+    <script>
+        /* =====================================
+           WEBSITE CATEGORY DATA
+        ===================================== */
+
+        const categories = {
+            business: {
+                title: "Business Websites",
+                description: "Build trust and present your business professionally online.",
+                types: [
+                    ["Corporate Website", "Present your company, services, team, and business information."],
+                    ["Small Business Website", "Help local and growing businesses reach more customers."],
+                    ["Startup Website", "Introduce your startup, idea, and value proposition."],
+                    ["Consulting Website", "Showcase consulting services, expertise, and client results."],
+                    ["Agency Website", "Promote your agency's services, team, and case studies."],
+                    ["Personal Business Website", "Build a professional online presence for your business."],
+                    ["B2B Website", "Connect with other businesses and generate qualified leads."],
+                    ["Service Provider Website", "Explain your services and make it easy to request a quote."]
+                ]
+            },
+
+            ecommerce: {
+                title: "E-commerce Websites",
+                description: "Create an online store to showcase products and sell online.",
+                types: [
+                    ["Fashion Store", "Sell clothing, footwear, accessories, and fashion products."],
+                    ["Electronics Store", "Showcase electronics, gadgets, and tech accessories."],
+                    ["Grocery Store", "Present grocery products and online ordering options."],
+                    ["Beauty Products Store", "Sell skincare, makeup, and beauty products."],
+                    ["Furniture Store", "Display furniture collections and home furnishings."],
+                    ["Jewelry Store", "Showcase jewelry collections in an elegant storefront."],
+                    ["Handmade Products Store", "Sell crafts, art, gifts, and handmade goods."],
+                    ["Multi-Category Store", "Sell products from multiple categories in one shop."]
+                ]
+            },
+
+            beauty: {
+                title: "Beauty & Salon Websites",
+                description: "Help customers discover your services and book appointments.",
+                types: [
+                    ["Hair Salon Website", "Display haircuts, styling, treatments, and salon services."],
+                    ["Spa Website", "Promote spa treatments, packages, and wellness experiences."],
+                    ["Makeup Artist Website", "Showcase makeup portfolios, packages, and bookings."],
+                    ["Nail Salon Website", "Feature nail art, manicure services, and appointments."],
+                    ["Barbershop Website", "Present barber services, pricing, and opening hours."],
+                    ["Beauty Clinic Website", "Introduce beauty treatments and your professional team."],
+                    ["Lash & Brow Website", "Promote lash extensions, brow styling, and beauty services."],
+                    ["Skincare Studio Website", "Showcase skincare treatments and consultation options."]
+                ]
+            },
+
+            food: {
+                title: "Restaurant & Food Websites",
+                description: "Show your menu, location, food, and ordering options.",
+                types: [
+                    ["Restaurant Website", "Display menus, opening hours, location, and reservations."],
+                    ["Cafe Website", "Showcase coffee, drinks, food, and your cafe atmosphere."],
+                    ["Bakery Website", "Feature cakes, pastries, custom orders, and baked goods."],
+                    ["Food Delivery Website", "Present food ordering and delivery options."],
+                    ["Catering Website", "Promote catering packages for parties and corporate events."],
+                    ["Food Truck Website", "Share your menu, schedule, and locations."],
+                    ["Cloud Kitchen Website", "Showcase delivery-focused menus and ordering details."],
+                    ["Personal Chef Website", "Promote private dining, meal preparation, and chef services."]
+                ]
+            },
+
+            realestate: {
+                title: "Real Estate Websites",
+                description: "Present properties, generate leads, and connect with buyers and renters.",
+                types: [
+                    ["Real Estate Agency", "Showcase property listings and your agency's services."],
+                    ["Property Listing Website", "Organize properties with useful search and filter options."],
+                    ["Rental Property Website", "Promote homes and spaces available for rent."],
+                    ["Commercial Property Website", "Feature offices, retail spaces, and commercial buildings."],
+                    ["Luxury Real Estate Website", "Present premium properties with polished visuals."],
+                    ["Property Developer Website", "Showcase residential and commercial developments."],
+                    ["Realtor Personal Website", "Build your personal brand and attract potential clients."],
+                    ["Vacation Rental Website", "Display holiday homes and accommodation details."]
+                ]
+            },
+
+            construction: {
+                title: "Construction Websites",
+                description: "Showcase your projects, expertise, and construction services.",
+                types: [
+                    ["Construction Company", "Present your company, services, team, and completed projects."],
+                    ["General Contractor", "Explain contracting services and request-a-quote options."],
+                    ["Architecture Firm", "Display architectural projects and design capabilities."],
+                    ["Interior Design Website", "Showcase interiors, design concepts, and portfolios."],
+                    ["Home Renovation Website", "Promote remodeling, upgrades, and renovation services."],
+                    ["Roofing Company", "Present roofing installation, repair, and inspection services."],
+                    ["Landscaping Website", "Feature garden design, landscaping, and outdoor projects."],
+                    ["Electrical & Plumbing", "Promote specialist trade services and service inquiries."]
+                ]
+            },
+
+            health: {
+                title: "Health & Medical Websites",
+                description: "Help visitors understand your services and find the right care provider.",
+                types: [
+                    ["Medical Clinic Website", "Share clinic services, location, and appointment information."],
+                    ["Dental Clinic Website", "Present dental treatments, your team, and contact details."],
+                    ["Physiotherapy Website", "Explain rehabilitation services and appointment options."],
+                    ["Mental Wellness Website", "Present wellness services and professional information."],
+                    ["Veterinary Clinic Website", "Introduce pet care services and clinic information."],
+                    ["Healthcare Practice Website", "Share practice details and available services."],
+                    ["Nutritionist Website", "Promote nutrition consultations and educational resources."],
+                    ["Wellness Center Website", "Showcase wellness programs and available facilities."]
+                ]
+            },
+
+            education: {
+                title: "Education Websites",
+                description: "Make your school, training programs, and learning services easy to discover.",
+                types: [
+                    ["School Website", "Share school information, programs, and announcements."],
+                    ["College Website", "Present courses, campus details, and admissions information."],
+                    ["Online Course Website", "Showcase courses and learning opportunities."],
+                    ["Tutoring Website", "Promote tutoring subjects, schedules, and services."],
+                    ["Training Center Website", "Display professional training programs and enrollment details."],
+                    ["Language School Website", "Promote language courses and learning options."],
+                    ["Educational Consultant", "Present education guidance and consulting services."],
+                    ["Learning Platform", "Organize educational content and online learning resources."]
+                ]
+            },
+
+            automotive: {
+                title: "Automotive Websites",
+                description: "Bring your vehicle business and automotive services online.",
+                types: [
+                    ["Car Dealership Website", "Showcase vehicles, inventory, and dealership information."],
+                    ["Auto Repair Website", "Present repair services, workshop details, and inquiries."],
+                    ["Car Rental Website", "Display available vehicles, rental terms, and booking information."],
+                    ["Car Wash Website", "Promote cleaning packages and detailing services."],
+                    ["Auto Parts Store", "Present automotive parts and accessories."],
+                    ["Motorcycle Dealer Website", "Showcase motorcycles, models, and dealership services."],
+                    ["Vehicle Detailing Website", "Feature detailing packages and before-and-after projects."],
+                    ["Driving School Website", "Share driving courses, lesson information, and contact details."]
+                ]
+            },
+
+            travel: {
+                title: "Travel & Tourism Websites",
+                description: "Inspire visitors to explore destinations and discover your travel services.",
+                types: [
+                    ["Travel Agency Website", "Promote travel planning and holiday packages."],
+                    ["Tour Operator Website", "Showcase guided tours, itineraries, and destinations."],
+                    ["Hotel Website", "Present rooms, amenities, and accommodation details."],
+                    ["Bed & Breakfast Website", "Showcase rooms, hospitality, and local experiences."],
+                    ["Adventure Travel Website", "Feature outdoor adventures and activity packages."],
+                    ["Destination Guide Website", "Share travel information and destination highlights."],
+                    ["Cruise Travel Website", "Present cruise packages and travel information."],
+                    ["Travel Blogger Website", "Publish travel stories, guides, and recommendations."]
+                ]
+            },
+
+            fitness: {
+                title: "Fitness & Sports Websites",
+                description: "Promote your training services, classes, memberships, and programs.",
+                types: [
+                    ["Gym Website", "Present gym facilities, memberships, and opening hours."],
+                    ["Personal Trainer Website", "Promote coaching, training plans, and consultations."],
+                    ["Yoga Studio Website", "Showcase yoga classes, instructors, and schedules."],
+                    ["Sports Club Website", "Share club information, teams, and activities."],
+                    ["Martial Arts Website", "Present classes, instructors, and training programs."],
+                    ["Dance Studio Website", "Promote dance lessons, classes, and events."],
+                    ["Online Fitness Website", "Present remote coaching and online fitness programs."],
+                    ["Pilates Studio Website", "Showcase Pilates classes, instructors, and bookings."]
+                ]
+            },
+
+            creative: {
+                title: "Creative & Portfolio Websites",
+                description: "Show your work, creative style, and professional experience.",
+                types: [
+                    ["Photography Portfolio", "Showcase photography collections and client projects."],
+                    ["Graphic Designer Portfolio", "Present design projects, skills, and creative services."],
+                    ["Artist Portfolio", "Display artwork, collections, and exhibitions."],
+                    ["Freelancer Website", "Introduce your skills, services, and professional work."],
+                    ["Video Production Website", "Feature video projects and production services."],
+                    ["Copywriter Website", "Present writing samples and content services."],
+                    ["Fashion Designer Website", "Showcase fashion collections and design work."],
+                    ["Illustrator Portfolio", "Display illustrations, commissions, and creative projects."]
+                ]
+            },
+
+            events: {
+                title: "Events & Entertainment Websites",
+                description: "Promote events, venues, entertainment services, and bookings.",
+                types: [
+                    ["Event Planner Website", "Showcase event planning services and past events."],
+                    ["Wedding Planner Website", "Present wedding packages, galleries, and inquiries."],
+                    ["Event Venue Website", "Feature venue spaces, facilities, and event details."],
+                    ["DJ Website", "Showcase music services, performances, and booking information."],
+                    ["Musician Website", "Present music, upcoming shows, and artist information."],
+                    ["Party Rental Website", "Display party equipment, rental items, and packages."],
+                    ["Conference Website", "Share event schedules, speakers, and registration information."],
+                    ["Entertainment Agency", "Promote performers, talent, and entertainment services."]
+                ]
+            },
+
+            technology: {
+                title: "Technology & SaaS Websites",
+                description: "Explain your digital products, software, and technology services.",
+                types: [
+                    ["SaaS Website", "Explain your software product, features, and plans."],
+                    ["IT Services Website", "Present technical support and IT solutions."],
+                    ["Software Company Website", "Showcase software products, expertise, and services."],
+                    ["Mobile App Website", "Promote an app, its features, and download options."],
+                    ["Cybersecurity Website", "Present security services and technology expertise."],
+                    ["AI Product Website", "Introduce AI tools, features, and use cases."],
+                    ["Web Development Agency", "Showcase development services and selected projects."],
+                    ["Tech Startup Website", "Explain your technology idea and product offering."]
+                ]
+            },
+
+            finance: {
+                title: "Finance & Legal Websites",
+                description: "Build a professional online presence for financial and legal services.",
+                types: [
+                    ["Accounting Firm Website", "Present accounting, bookkeeping, and tax services."],
+                    ["Financial Advisor Website", "Explain advisory services and professional credentials."],
+                    ["Law Firm Website", "Introduce legal services, practice areas, and attorneys."],
+                    ["Legal Consultant Website", "Present consulting services and professional experience."],
+                    ["Insurance Agency Website", "Explain insurance products and consultation options."],
+                    ["Tax Consultant Website", "Promote tax preparation and advisory services."],
+                    ["Bookkeeping Website", "Showcase bookkeeping services and business support."],
+                    ["Mortgage Advisor Website", "Present mortgage guidance and consultation services."]
+                ]
+            },
+
+            other: {
+                title: "Other Industry Websites",
+                description: "Explore more website options for your business.",
+                types: [
+                    ["Cleaning Company Website", "Promote residential and commercial cleaning services."],
+                    ["Pet Services Website", "Showcase pet grooming, sitting, walking, and care."],
+                    ["Nonprofit Website", "Share your mission, programs, and ways to support your cause."],
+                    ["Moving Company Website", "Present moving services and quote requests."],
+                    ["Recruitment Website", "Showcase hiring services and career opportunities."],
+                    ["Agriculture Website", "Present farming, agricultural products, and services."],
+                    ["Home Services Website", "Promote home maintenance and repair services."],
+                    ["Custom Business Website", "Plan a tailored website for your unique business needs."]
+                ]
+            }
+        };
+
+        /* =====================================
+           DEMO PAGE ROUTING
+        ===================================== */
+
+        function getDemoPath(serviceName, categoryKey) {
+            const service = serviceName.toLowerCase();
+
+            // Restaurant and food demos
+            if (
+                service.includes("restaurant") ||
+                service.includes("cafe") ||
+                service.includes("bakery") ||
+                service.includes("food delivery") ||
+                service.includes("food truck") ||
+                service.includes("cloud kitchen") ||
+                service.includes("personal chef") ||
+                service.includes("catering")
+            ) {
+                return "../demos/restaurant/index.html";
+            }
+
+            // Salon and spa demo
+            if (
+                service.includes("salon") ||
+                service.includes("spa") ||
+                service.includes("makeup") ||
+                service.includes("nail") ||
+                service.includes("barbershop") ||
+                service.includes("lash") ||
+                service.includes("skincare") ||
+                service.includes("beauty clinic")
+            ) {
+                return "../demos/spa/index.html";
+            }
+
+            // E-commerce demo
+            if (
+                service.includes("store") ||
+                service.includes("e-commerce") ||
+                service.includes("ecommerce") ||
+                service.includes("fashion") ||
+                service.includes("electronics") ||
+                service.includes("grocery") ||
+                service.includes("jewelry") ||
+                service.includes("handmade") ||
+                service.includes("auto parts")
+            ) {
+                return "../demos/ecommerce/index.html";
+            }
+
+            // Tyre shop demo: check before general automotive routes
+            if (
+                service.includes("tyre") ||
+                service.includes("tire")
+            ) {
+                return "../demos/tyres/index.html";
+            }
+
+            // Car wash and detailing demo
+            if (
+                service.includes("car wash") ||
+                service.includes("detailing") ||
+                service.includes("auto repair")
+            ) {
+                return "../demos/carwash/index.html";
+            }
+
+            // Car sales demo
+            if (
+                service.includes("car dealership") ||
+                service.includes("car selling") ||
+                service.includes("vehicle sales") ||
+                service.includes("motorcycle dealer")
+            ) {
+                return "../demos/carselling/index.html";
+            }
+
+            // Other automotive services
+            if (categoryKey === "automotive") {
+                return "../demos/carwash/index.html";
+            }
+
+            // Categories without a dedicated demo
+            return "../index.html#portfolio";
+        }
+
+        /* =====================================
+           RENDER SELECTED CATEGORY
+        ===================================== */
+
+        const params = new URLSearchParams(window.location.search);
+        const categoryKey = params.get("type") || "";
+        const category = categories[categoryKey];
+
+        const titleElement = document.getElementById("category-title");
+        const descriptionElement = document.getElementById("category-description");
+        const grid = document.getElementById("type-grid");
+
+        if (category) {
+            document.title = category.title + " | ProConnect";
+            titleElement.textContent = category.title;
+            descriptionElement.textContent = category.description;
+
+            category.types.forEach(function(item) {
+                const card = document.createElement("article");
+                card.className = "type-card";
+
+                const title = document.createElement("h2");
+                title.textContent = item[0];
+
+                const description = document.createElement("p");
+                description.textContent = item[1];
+
+                const link = document.createElement("a");
+                link.className = "request-link";
+                link.textContent = "View Website Demo →";
+                link.href = getDemoPath(item[0], categoryKey);
+
+                card.appendChild(title);
+                card.appendChild(description);
+                card.appendChild(link);
+
+                grid.appendChild(card);
+            });
+
+        } else {
+            document.title = "Category Not Found | ProConnect";
+            titleElement.textContent = "Category Not Found";
+            descriptionElement.textContent =
+                "Please select a website category from our services page.";
+
+            const message = document.createElement("div");
+            message.className = "not-found";
+
+            const link = document.createElement("a");
+            link.className = "request-link";
+            link.href = "services.html";
+            link.textContent = "Browse All Categories →";
+
+            message.appendChild(link);
+            grid.appendChild(message);
+        }
+    </script>
+
+</body>
+</html>
