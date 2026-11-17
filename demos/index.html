@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Website Design Demos | ProConneva</title>
+<meta name="description" content="Explore ProConneva website design demos including car selling, car wash, e-commerce, jewellery, restaurant, spa and tyre websites.">
+<meta name="robots" content="index, follow">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f7fc;
+  color: #10213c;
+}
+
+header {
+  background: linear-gradient(110deg, #07152e, #123b60);
+  padding: 20px;
+}
+
+.nav {
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #20d5e8;
+}
+
+.back {
+  color: #20d5e8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(32,213,232,.2), transparent 30%),
+    linear-gradient(120deg, #07152e, #123b60);
+  color: white;
+  text-align: center;
+  padding: 85px 20px;
+}
+
+.tag {
+  color: #20d5e8;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(35px, 6vw, 55px);
+  margin: 20px 0;
+}
+
+.hero h1 span {
+  color: #20d5e8;
+}
+
+.hero p {
+  color: #d0deef;
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 70px 20px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading h2 {
+  font-size: 34px;
+  color: #07152e;
+  margin-bottom: 12px;
+}
+
+.heading p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e1eaf4;
+  border-radius: 16px;
+  padding: 30px 25px;
+  box-shadow: 0 8px 25px rgba(7,21,46,.06);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: #20d5e8;
+  box-shadow: 0 15px 30px rgba(7,21,46,.12);
+}
+
+.icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e0fbff, #e8efff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 21px;
+  color: #07152e;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 70px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: linear-gradient(100deg, #20d5e8, #3185ff);
+  color: #07152e;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+footer {
+  background: #061329;
+  color: #c6d4e5;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 13px;
+}
+
+footer a {
+  color: #20d5e8;
+  text-decoration: none;
+}
+
+@media(max-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 550px) {
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 65px 18px;
+  }
+
+  .container {
+    padding: 50px 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <a href="../index.html" class="logo">ProConneva<span>.</span></a>
+    <a href="../index.html" class="back">← Back to Home</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="tag">OUR CREATIVE PORTFOLIO</div>
+  <h1>Explore Our <span>Website Demos</span></h1>
+  <p>
+    Discover our website design concepts for different industries.
+    Explore creative layouts, modern designs and responsive website experiences.
+  </p>
+</section>
+
+<main class="container">
+
+  <div class="heading">
+    <h2>Our Demo Projects</h2>
+    <p>Choose a project below to explore its website design.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🚘</div>
+      <h3>Car Selling Website</h3>
+      <p>A modern automotive website concept for showcasing cars and helping visitors explore available vehicles.</p>
+      <a href="carselling/" class="btn">Explore Demo →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚗</div>
+      <h3>Car Wash Website</h3>
+      <p>A professional car wash website concept with service information and a clean business presentation.</p>
+      <a href="carwash/" class="btn">Explore Demo →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛍️</div>
+      <h3>E-commerce Website</h3>
+      <p>An online shopping website concept with product-focused layouts and a modern storefront experience.</p>
+      <a href="ecommerce/" class="btn">Explore Demo →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">💎</div>
+      <h3>Jewellery Website</h3>
+      <p>An elegant jewellery website concept designed to showcase collections with a premium visual style.</p>
+      <a href="jewellery/" class="btn">Explore Demo →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🍽️</div>
+      <h3>Restaurant Website</h3>
+      <p>A restaurant website concept featuring food presentation, business information and an inviting design.</p>
+      <a href="restaurant/" class="btn">Explore Demo →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌿</div>
+      <h3>Spa & Salon Website</h3>
+      <p>A relaxing spa and salon website concept with a stylish layout and service presentation.</p>
+      <a href="spa/" class="btn">Explore Demo →</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛞</div>
+      <h3>Tyres Website</h3>
+      <p>An automotive tyre website concept for presenting tyre products and related business services.</p>
+      <a href="tyres/" class="btn">Explore Demo →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 <strong>ProConneva</strong>. All Rights Reserved.</p>
+  <p style="margin-top:10px;">These are demo projects, not client case studies.</p>
+  <p style="margin-top:10px;"><a href="../index.html">Back to ProConneva Home</a></p>
+</footer>
+
+</body>
+</html>
