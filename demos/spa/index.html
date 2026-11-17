@@ -1,0 +1,644 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Serenity Spa | Luxury Wellness & Beauty</title>
+  <meta name="description" content="A premium spa and wellness website concept featuring treatments, packages and appointment enquiries.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #343b32;
+      background: #fcfaf6;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .demo-notice {
+      background: #253b32;
+      color: white;
+      padding: 9px 15px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .demo-notice a {
+      color: #e9d8b5;
+      text-decoration: underline;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      padding: 20px 7%;
+      background: #fcfaf6;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: bold;
+      color: #365342;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #b28b61;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #9c7855;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #365342;
+      color: white;
+      padding: 13px 23px;
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: .5px;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      background: #24392d;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 80px 8%;
+      background:
+        linear-gradient(90deg, rgba(25, 44, 34, .78), rgba(25, 44, 34, .12)),
+        url("https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .eyebrow {
+      color: #a9855d;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .hero .eyebrow {
+      color: #f0d7ae;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 76px);
+      margin: 20px 0;
+    }
+
+    .hero p {
+      font-size: 17px;
+      max-width: 490px;
+      color: #f0f0e9;
+      margin-bottom: 30px;
+    }
+
+    .hero .btn {
+      background: #d6b58a;
+      color: #253b32;
+    }
+
+    .section {
+      padding: 85px 8%;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin: 14px 0 18px;
+    }
+
+    .muted {
+      color: #777b72;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid #eee9df;
+      overflow: hidden;
+      transition: .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 35px rgba(30, 45, 33, .10);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .service-info {
+      padding: 23px;
+    }
+
+    .service-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .service-title h3 {
+      font-size: 23px;
+    }
+
+    .price {
+      color: #9a7854;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .service-info p {
+      color: #777b72;
+      font-size: 14px;
+      margin: 12px 0 17px;
+    }
+
+    .text-link {
+      color: #365342;
+      font-size: 13px;
+      font-weight: bold;
+      border-bottom: 1px solid #365342;
+      padding-bottom: 3px;
+    }
+
+    .about {
+      background: #f0eee5;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+    }
+
+    .about p {
+      color: #6d746b;
+      margin: 17px 0;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .benefit {
+      padding: 12px;
+      background: rgba(255,255,255,.65);
+      font-size: 14px;
+    }
+
+    .benefit span {
+      color: #9a7854;
+      margin-right: 7px;
+    }
+
+    .reviews {
+      background: #fff;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .review-card {
+      padding: 28px;
+      background: #fcfaf6;
+      border: 1px solid #eee9df;
+    }
+
+    .stars {
+      color: #b58a50;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .review-card p {
+      color: #666e64;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .review-card strong {
+      font-family: Georgia, serif;
+      font-size: 18px;
+    }
+
+    .booking {
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(rgba(28, 51, 38, .83), rgba(28, 51, 38, .83)),
+        url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    }
+
+    .booking p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      color: #e6e9e1;
+    }
+
+    .booking .btn {
+      background: #d6b58a;
+      color: #253b32;
+    }
+
+    footer {
+      background: #20372b;
+      color: #e6e9e1;
+      padding: 35px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: #e8cba4;
+    }
+
+    /* Floating Hire Me on Upwork button */
+    .upwork-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: #14a800;
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .25);
+      transition: background .2s, transform .2s;
+    }
+
+    .upwork-button:hover {
+      background: #108500;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 850px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .services-grid,
+      .review-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        min-height: 520px;
+        padding: 55px 7%;
+      }
+
+      .section {
+        padding: 60px 6%;
+      }
+
+      .services-grid,
+      .review-grid,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card img {
+        height: 250px;
+      }
+
+      .about img {
+        height: 300px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      nav {
+        gap: 12px;
+        font-size: 13px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .upwork-button {
+        right: 12px;
+        bottom: 12px;
+        padding: 12px 16px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="demo-notice">
+    ProConnect Portfolio Demo ·
+    <a href="../../index.html">Back to Main Website</a>
+  </div>
+
+  <header>
+    <a href="#home" class="logo">Serenity<span>.</span> Spa</a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Treatments</a>
+      <a href="#about">Our Story</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#booking" class="btn">Book a Visit</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">RELAX · RESTORE · RECONNECT</span>
+        <h1>Your Moment of Peace Starts Here.</h1>
+        <p>
+          Escape the everyday and discover thoughtful wellness
+          treatments designed to help you slow down, recharge
+          and feel your very best.
+        </p>
+        <a href="#services" class="btn">Explore Our Treatments</a>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-heading">
+        <span class="eyebrow">THE SERENITY EXPERIENCE</span>
+        <h2>Treatments Made for You</h2>
+        <p class="muted">
+          Discover our sample collection of relaxing spa treatments
+          and beauty services.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=85"
+            alt="Relaxing spa massage"
+            loading="lazy">
+          <div class="service-info">
+            <div class="service-title">
+              <h3>Relaxation Massage</h3>
+              <span class="price">$75</span>
+            </div>
+            <p>
+              Unwind with a soothing full-body massage in a peaceful
+              and calming environment.
+            </p>
+            <a href="#booking" class="text-link">ENQUIRE NOW →</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85"
+            alt="Professional facial skincare treatment"
+            loading="lazy">
+          <div class="service-info">
+            <div class="service-title">
+              <h3>Glow Facial</h3>
+              <span class="price">$60</span>
+            </div>
+            <p>
+              Enjoy a refreshing facial experience focused on
+              cleansing, hydration and self-care.
+            </p>
+            <a href="#booking" class="text-link">ENQUIRE NOW →</a>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=85"
+            alt="Peaceful spa wellness treatment"
+            loading="lazy">
+          <div class="service-info">
+            <div class="service-title">
+              <h3>Body Ritual</h3>
+              <span class="price">$90</span>
+            </div>
+            <p>
+              Take time for yourself with a relaxing body treatment
+              inspired by a spa retreat.
+            </p>
+            <a href="#booking" class="text-link">ENQUIRE NOW →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <img
+        src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1100&q=85"
+        alt="Calm and elegant spa interior"
+        loading="lazy">
+
+      <div>
+        <span class="eyebrow">A PLACE TO SLOW DOWN</span>
+        <h2>Wellness Begins With You.</h2>
+        <p>
+          Serenity Spa is a sample wellness brand built around
+          comfort, thoughtful service and a welcoming atmosphere.
+          Every detail is designed to make your visit feel special.
+        </p>
+        <p>
+          This concept can be customized for your real spa or salon
+          with your own treatments, team, brand colors and photography.
+        </p>
+
+        <div class="benefits">
+          <div class="benefit"><span>✓</span> Peaceful Environment</div>
+          <div class="benefit"><span>✓</span> Personal Attention</div>
+          <div class="benefit"><span>✓</span> Tailored Treatments</div>
+          <div class="benefit"><span>✓</span> Thoughtful Service</div>
+        </div>
+
+        <a href="#booking" class="btn">Discover Serenity</a>
+      </div>
+    </section>
+
+    <section class="section reviews" id="reviews">
+      <div class="section-heading">
+        <span class="eyebrow">KIND WORDS</span>
+        <h2>A Moment Just for You</h2>
+        <p class="muted">
+          Sample testimonials showing how customer feedback
+          could appear on a spa website.
+        </p>
+      </div>
+
+      <div class="review-grid">
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            “A beautiful, peaceful website concept. The atmosphere
+            feels welcoming and relaxing from the moment you arrive.”
+          </p>
+          <strong>Alex Morgan</strong>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            “The treatment options are easy to explore, and the
+            design makes finding information simple.”
+          </p>
+          <strong>Jamie Taylor</strong>
+        </article>
+
+        <article class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            “A lovely wellness concept with a clean layout and
+            thoughtful details throughout.”
+          </p>
+          <strong>Sam Wilson</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="section booking" id="booking">
+      <span class="eyebrow">YOUR TIME. YOUR SPACE.</span>
+      <h2>Ready to Feel Refreshed?</h2>
+      <p>
+        Get in touch to learn more about our sample treatments
+        and create your own moment of calm.
+      </p>
+      <a class="btn" href="mailto:hello@example.com?subject=Spa%20Enquiry">
+        Contact the Spa
+      </a>
+      <p style="font-size:12px;margin-top:18px">
+        Demo contact link — replace with the real spa email or booking system.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Serenity Spa · Wellness Website Demo</span>
+    <span>Sample services, prices and testimonials for illustration only.</span>
+    <a href="../../index.html">← Back to ProConnect</a>
+  </footer>
+
+  <!-- Floating Upwork Contact Button -->
+  <a
+    class="upwork-button"
+    href="https://www.upwork.com/freelancers/~01e096a106f834c336"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit my Upwork profile to discuss a website project">
+    Hire Me on Upwork ↗
+  </a>
+
+</body>
+</html>
+```
